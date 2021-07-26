@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
-import { Link as LinkScroll } from "react-scroll";
+import dropdownDark from './assets/dropdown-dark.svg';
 
 export const Nav = styled.nav`
   background: var(--navbar-bg);
@@ -70,7 +70,7 @@ export const NavItem = styled.li`
   
 `;
 
-export const NavLinks = styled(LinkScroll)`
+export const NavLinks = styled(LinkRouter)`
   color: var(--navbar-text);
   display: flex;
   align-items: center;
@@ -79,7 +79,7 @@ export const NavLinks = styled(LinkScroll)`
   font-weight: 400;
   letter-spacing: 7%;
   cursor: pointer;
-  border-bottom: 3px solid transparent;
+  border-bottom: 2px solid transparent;
   transition: all 0.1s ease-in-out;
 
   &:hover {
@@ -89,7 +89,7 @@ export const NavLinks = styled(LinkScroll)`
   }
 
   &:active {
-    transition: all 0.25s ease-in-out;
+    transition: all 0.1s ease-in-out;
     border-bottom: 2px solid var(--blue);
     color: var(--text);
   }
@@ -118,7 +118,7 @@ export const NavBtnLink = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 5px;
   white-space: nowrap;
   padding: 5px 15px;
   color: var(--text);
@@ -134,6 +134,7 @@ export const NavUser = styled.button`
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  z-index: 15;
 
   img {
       height: 40px;
@@ -143,3 +144,33 @@ export const NavUser = styled.button`
       display: none;
   }
 `
+
+export const NavDropdown = styled.div`
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-image: url(${dropdownDark});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: ${({ dropdownOpen }) => dropdownOpen ? "flex" : "none"};
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    z-index: 12;
+    transition: all 0.3s ease-in-out;
+
+    @media screen and (max-width: 850px) {
+      display: none;
+    }
+`;
+
+export const NavDropLink = styled(LinkRouter)`
+  margin: 10px 0px;
+  color: var(--navbar-text);
+
+  &:hover {
+    color: var(--text);
+  }
+`;

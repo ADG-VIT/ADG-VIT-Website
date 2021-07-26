@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Nav,
   NavbarContainer,
@@ -9,13 +9,19 @@ import {
   MobileIcon,
   NavBtn,
   NavBtnLink,
-  NavUser
+  NavUser,
+  NavDropdown,
+  NavDropLink
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
 import userIcon from './assets/user-icon.svg';
 import ADGLogo from './assets/adg-logo-dark.png';
 
 const Navbar = ({ toggle }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
   return (
     <>
       <Nav>
@@ -51,9 +57,13 @@ const Navbar = ({ toggle }) => {
               <NavLinks to="/team">Team</NavLinks>
             </NavItem>
           </NavMenu>
-          <NavUser>
+          <NavUser onClick={toggleDropdown}>
               <img src={userIcon} alt="User Icon"></img>
           </NavUser>
+          <NavDropdown dropdownOpen={dropdownOpen}>
+              <NavDropLink onClick={toggleDropdown} to="/">Create an Account</NavDropLink>
+              <NavDropLink onClick={toggleDropdown} to="/">Login</NavDropLink>
+          </NavDropdown>
         </NavbarContainer>
       </Nav>
     </>
