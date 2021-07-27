@@ -122,10 +122,15 @@ export const NavBtnLink = styled.button`
   white-space: nowrap;
   padding: 5px 15px;
   color: var(--text);
-  font-size: 14px;
+  font-size: 16px;
   border: 2px solid var(--blue);
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: var(--blue);
+  }
 `
 
 export const NavUser = styled.button`

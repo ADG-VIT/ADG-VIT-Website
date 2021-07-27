@@ -5,11 +5,12 @@ import { FaTimes } from "react-icons/fa";
 export const SidebarContainer = styled.aside`
   width: 100%;
   height: 100%;
-  position: fixed;
-  z-index: 20;
+  position: absolute;
+  z-index: 12;
   background-color: var(--background);
-  display: grid;
+  display: flex;
   align-items: center;
+  justify-content: center;
   top: 0;
   left: 0;
   transition: all 0.3s ease-in-out;
@@ -52,7 +53,7 @@ export const SidebarLink = styled(LinkR)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 16px;
   text-decoration: none;
   list-style: none;
   transition: 0;
@@ -77,16 +78,16 @@ export const SidebarRoute = styled(LinkR)`
   border-radius: 50px;
   background: transparent;
   white-space: nowrap;
-  padding: 10px 22px;
   color: var(--text);
   font-size: 16px;
   outline: none;
-  border: none;
   cursor: pointer;
   border: 2px solid var(--blue);
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 5px 15px;
 
   &:hover {
     transition: all 0.2s ease-in-out;

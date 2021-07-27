@@ -7,8 +7,10 @@ import Projects from "./components/Projects/Projects";
 function App() {
   return (
     <div className="App">
+      <Layout />
       <Switch>
-        <Layout />
+        
+        <Landing />
         <Route exact path="/" component={Landing} />
         <Route exact path="/projects" component={Projects} />
       </Switch>
