@@ -6,8 +6,10 @@ import Layout from "./components/Layout/Layout";
 function App() {
   return (
     <div className="App">
+      <Layout />
       <Switch>
-        <Layout />
+        
+        <Landing />
         <Route exact path="/" component={Landing} />
       </Switch>
     </div>

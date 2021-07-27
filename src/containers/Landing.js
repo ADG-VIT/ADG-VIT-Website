@@ -1,10 +1,12 @@
-import React from 'react'
-import HeroBox from '../components/Landing/HeroBox'
+import React from 'react';
+import HeroBox from '../components/Landing/Herobox/HeroBox';
 
-export default function Landing() {
+const Landing = () => {
     return (
         <div>
             <HeroBox />
         </div>
     )
 }
+
+export default Landing;
