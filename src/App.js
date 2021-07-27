@@ -9,8 +9,6 @@ function App() {
     <div className="App">
       <Layout />
       <Switch>
-        
-        <Landing />
         <Route exact path="/" component={Landing} />
         <Route exact path="/projects" component={Projects} />
       </Switch>
