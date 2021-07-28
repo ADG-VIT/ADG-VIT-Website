@@ -23,12 +23,13 @@ export const Link = styled(LinkRouter)`
 
 export const CardWrapper = styled.div`
   background: #191928;
-  width: 20em;
-  border-radius: 0.6em;
+  width: 19rem;
+  border-radius: 0.6rem;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25),
     0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
+  margin: 0 4rem;
 `;
 
 export const CardImage = styled.img`
@@ -39,12 +40,12 @@ export const CardImage = styled.img`
 export const CardFooter = styled.div`
   background-color: #191928;
   color: var(--dark-mode-text);
-  padding: 1.2em;
+  padding: 1.2rem;
 `;
 
 export const Title = styled.h1`
   line-height: 1.4;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
 `;
