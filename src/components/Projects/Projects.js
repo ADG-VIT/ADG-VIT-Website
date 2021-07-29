@@ -1,5 +1,6 @@
 import React from "react";
-import { HeadingContainer, Heading, Link as SeeAll, CardWrapper, CardImage, CardFooter, Title, About } from "./ProjectItems";
+import { HeadingContainer, Heading, Link as SeeAll} from "./ProjectElements";
+import Card from "./Card"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -13,11 +14,11 @@ const responsive = {
       items: 3
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 620 },
       items: 2
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 620, min: 0 },
       items: 1
     }
   };
@@ -31,35 +32,11 @@ export default function Projects() {
       <SeeAll to="/projects/all" >See All</SeeAll>
     </HeadingContainer>
     <Carousel responsive={responsive}>
-    <CardWrapper>
-        <CardImage src="Frame 212.svg"></CardImage>
-        <CardFooter>
-            <Title>ADG VIT App</Title>
-            <About>An App for all things Apple Developers Group</About>
-        </CardFooter>
-    </CardWrapper>
-    <CardWrapper>
-        <CardImage src="Frame 212.svg"></CardImage>
-        <CardFooter>
-            <Title>ADG VIT App</Title>
-            <About>An App for all things Apple Developers Group</About>
-        </CardFooter>
-    </CardWrapper>
-    <CardWrapper>
-        <CardImage src="Frame 212.svg"></CardImage>
-        <CardFooter>
-            <Title>ADG VIT App</Title>
-            <About>An App for all things Apple Developers Group</About>
-        </CardFooter>
-    </CardWrapper>
-    <CardWrapper>
-        <CardImage src="Frame 212.svg"></CardImage>
-        <CardFooter>
-            <Title>ADG VIT App</Title>
-            <About>An App for all things Apple Developers Group</About>
-        </CardFooter>
-    </CardWrapper>
-    
+    <Card key={0} imageSrc="Frame 212.svg" title="ADG VIT App" about="An App for all things Apple Developers Group" />
+    <Card key={1} imageSrc="Frame 212.svg" title="ADG VIT App" about="An App for all things Apple Developers Group" />
+    <Card key={2} imageSrc="Frame 212.svg" title="ADG VIT App" about="An App for all things Apple Developers Group" />
+    <Card key={3} imageSrc="Frame 212.svg" title="ADG VIT App" about="An App for all things Apple Developers Group" />
+    <Card key={4} imageSrc="Frame 212.svg" title="ADG VIT App" about="An App for all things Apple Developers Group" />
     </Carousel>
     </React.Fragment>
   );
