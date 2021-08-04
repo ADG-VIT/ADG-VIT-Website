@@ -99,7 +99,7 @@ export const ProjectTitle = styled.h1`
   grid-row: 3;
   grid-column: 3 / 11;
   text-align: left;
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     text-align: center;
     font-size: 2rem;
   }
@@ -113,6 +113,10 @@ export const ProjectLinks = styled.div`
   justify-content: left;
 `;
 
+export const ProjectLinkImage = styled.img`
+  height: 2.5rem;
+`;
+
 export const ProjectAbout = styled.div`
   display: flex;
   justify-content: left;
@@ -121,22 +125,20 @@ export const ProjectAbout = styled.div`
   grid-row: 5;
   grid-column: 3 / 6;
   text-align: left;
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     text-align: center;
   }
 `;
 
-export const ProjectButton = styled(LinkRouter)`
+export const ProjectButton = styled.button`
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
   background-color: var(--blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--text);
   border: none;
   border-radius: 10px;
+  cursor: pointer;
   grid-row: 7;
   grid-column: 3 / 5;
   @media screen and (max-width: 1024px) {
@@ -149,7 +151,7 @@ export const ProjectButton = styled(LinkRouter)`
   }
 `;
 
-// Right 
+// Right
 
 export const ProjectImageR = styled.div`
   grid-row: 1 / 11;
@@ -164,7 +166,7 @@ export const ProjectTitleR = styled.h1`
   grid-row: 3;
   grid-column: 4 / 6;
   text-align: right;
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     text-align: center;
     font-size: 2rem;
   }
@@ -186,7 +188,7 @@ export const ProjectAboutR = styled.div`
   grid-row: 5;
   grid-column: 3 / 6;
   text-align: right;
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     text-align: center;
   }
 `;
@@ -202,6 +204,7 @@ export const ProjectButtonR = styled(LinkRouter)`
   color: var(--text);
   border: none;
   border-radius: 10px;
+  cursor: pointer;
   grid-row: 7;
   grid-column: 4 / 6;
   @media screen and (max-width: 1024px) {
