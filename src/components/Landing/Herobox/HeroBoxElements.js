@@ -4,7 +4,7 @@ import { Link as LinkRouter } from "react-router-dom";
 import background from "./assets/herobox-background.png";
 
 export const HeroBoxContainer = styled.div`
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
   background-image: url(${background});
   background-position: center;
   background-repeat: no-repeat;
@@ -17,8 +17,9 @@ export const HeroBoxContainer = styled.div`
 `;
 
 export const ADGLogoWrap = styled.div`
-  width: 10rem;
+  width: 9rem;
   margin-bottom: 20px;
+  margin-top: 10px;
 
   img {
     width: 100%;
@@ -42,7 +43,7 @@ export const MainHeader = styled.h1`
 
 export const Tagline = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 800;
   text-align: center;
 
@@ -79,14 +80,13 @@ export const About = styled.p`
 
   @media screen and (max-width: 500px) {
     width: 85%;
-    font-size: 12px;
   }
 `;
 
 export const JoinUsButton = styled(LinkRouter)`
   width: 250px;
-  height: 50px;
-  font-size: 0.75rem;
+  min-height: 50px;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
   background-color: var(--blue);
@@ -96,9 +96,10 @@ export const JoinUsButton = styled(LinkRouter)`
   color: var(--text);
   border: none;
   border-radius: 10px;
+  margin-bottom: 10px;
 
   @media screen and (max-width: 400px) {
-    width: 85%;
-    font-size: 12px;
+    width: 50%;
+    font-size: 14px;
   }
 `;
