@@ -27,7 +27,7 @@ const responsive = {
 export default function Projects() {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
   React.useEffect(() => {
-    Axios.get("https://backend-events.herokuapp.com/projects/0").then(
+    Axios.get("https://backend-events.herokuapp.com/projects?q=0").then(
       (value) => {
         setIsUpdated({ value: true, data: value });
       }

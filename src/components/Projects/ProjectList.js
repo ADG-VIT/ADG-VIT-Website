@@ -6,7 +6,7 @@ import {Title} from "./ProjectElements"
 const ProjectList = () => {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
   React.useEffect(() => {
-    Axios.get("https://backend-events.herokuapp.com/projects/0").then(
+    Axios.get("https://backend-events.herokuapp.com/projects?q=0").then(
       (value) => {
         setIsUpdated({ value: true, data: value });
       }
@@ -14,7 +14,7 @@ const ProjectList = () => {
   }, []);
   return (
     <React.Fragment>
-    <Title style={{"color": "var(--dark-mode-text)", "fontSize": "3rem", "margin": "1rem", "textAlign" : "center"}} >Our Projects</Title>
+    <Title style={{"color": "var(--dark-mode-text)", "fontSize": "2rem", "margin": "1rem", "textAlign" : "center"}} >Our Projects</Title>
       {isUpdated.value &&
         isUpdated.data.data.map((i, ind) => {
           return (

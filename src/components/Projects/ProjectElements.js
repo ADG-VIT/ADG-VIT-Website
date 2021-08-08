@@ -35,8 +35,6 @@ export const CardWrapper = styled.div`
   border-radius: 0.6rem;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25),
-    0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
   margin: 0 4rem 2rem;
   @media screen and (max-width: 450px) {
     width: 15rem;
@@ -193,7 +191,7 @@ export const ProjectAboutR = styled.div`
   }
 `;
 
-export const ProjectButtonR = styled(LinkRouter)`
+export const ProjectButtonR = styled.button`
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
