@@ -6,6 +6,9 @@ export const HeadingContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 3rem 4rem;
+  @media screen and (max-width: 450px) {
+    padding: 3rem 2rem;
+  }
 `;
 
 export const Heading = styled.h1`
@@ -21,9 +24,14 @@ export const Heading = styled.h1`
 export const Link = styled(LinkRouter)`
   text-decoration: none;
   color: var(--blue);
-  font-size: 1rem;
+  font-size: 1.35rem;
   @media screen and (max-width: 450px) {
-    font-size: 0.75rem;
+    font-size: 1rem;
+  }
+  &:hover {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    border-bottom: 2px solid var(--blue);
   }
 `;
 
@@ -34,7 +42,6 @@ export const CardWrapper = styled.div`
   width: 19rem;
   border-radius: 0.6rem;
   overflow: hidden;
-  cursor: pointer;
   margin: 0 4rem 2rem;
   @media screen and (max-width: 450px) {
     width: 15rem;
@@ -44,6 +51,13 @@ export const CardWrapper = styled.div`
 export const CardImage = styled.img`
   width: 100%;
   object-fit: cover;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+  overflow: hidden;
+  ${CardWrapper}:hover & {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 `;
 
 export const CardFooter = styled.div`
@@ -54,13 +68,13 @@ export const CardFooter = styled.div`
 
 export const Title = styled.h1`
   line-height: 1.4;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
 `;
 
 export const About = styled.p`
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 300;
 `;
 
@@ -72,13 +86,16 @@ export const ProjectWrapper = styled.div`
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(10, 1fr);
   color: var(--dark-mode-text);
-  gap: 1rem;
-  padding: 2rem;
+  gap: 3rem;
+  padding: 2rem 0;
+  margin: 5rem 2rem 10rem;
   @media screen and (max-width: 1024px) {
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0;
   }
 `;
 
@@ -139,6 +156,7 @@ export const ProjectButton = styled.button`
   cursor: pointer;
   grid-row: 7;
   grid-column: 3 / 5;
+  height: 3rem;
   @media screen and (max-width: 1024px) {
     width: 10rem;
     height: 3rem;
@@ -203,6 +221,7 @@ export const ProjectButtonR = styled.button`
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  height: 3rem;
   grid-row: 7;
   grid-column: 4 / 6;
   @media screen and (max-width: 1024px) {

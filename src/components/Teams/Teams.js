@@ -34,6 +34,9 @@ const Teams = () => {
                   name={i.Name}
                   desig={i.Designation}
                   pic={i.Pic}
+                  linked={i.LinkedIn}
+                  git={i.Github}
+                  email={i.Email}
                 />
               );
             } else {
@@ -71,6 +74,9 @@ const FullTeams = () => {
                 name={i.Name}
                 desig={i.Designation}
                 pic={i.Pic}
+                linked={i.LinkedIn}
+                git={i.Github}
+                email={i.Email}
               />
             );
           })}

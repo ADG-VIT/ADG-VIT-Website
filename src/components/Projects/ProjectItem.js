@@ -34,7 +34,7 @@ const ProjectItem = (props) => {
         </ProjectImageR>
         <ProjectTitleR>{props.title}</ProjectTitleR>
         <ProjectLinksR>
-          <a href={"https://" + props.android} style={{"marginLeft": "1rem"}}>
+          <a href={"https://" + props.android} style={{"marginRight": "1rem"}}>
             <ProjectLinkImage
               src={Android}
               alt="Google play link"
@@ -63,13 +63,13 @@ const ProjectItem = (props) => {
       </ProjectImage>
       <ProjectTitle>{props.title}</ProjectTitle>
       <ProjectLinks>
-      <a href={"https://" + props.android} style={{"marginRight": "1rem"}} >
+      <a href={"https://" + props.android}>
             <ProjectLinkImage
               src={Android}
               alt="Google play link"
             ></ProjectLinkImage>
           </a>
-          <a href={"https://" + props.ios}>
+          <a href={"https://" + props.ios} style={{"marginLeft": "1rem"}}>
             <ProjectLinkImage
               src={Apple}
               alt="Apple play link"

@@ -6,8 +6,14 @@ export const Heading = styled.h1`
     color: var(--dark-mode-text);
     text-align: left;
     margin: 1rem;
-    @media screen and (max-width: 1152px){
+    @media screen and (max-width: 1280px){
         font-size: 2rem;
+    }
+    @media screen and (max-width: 903px){
+      text-align: center;
+    }
+    @media screen and (max-width: 383px){
+      font-size: 1.5rem;
     }
 `
 
@@ -29,9 +35,17 @@ export const Box = styled.div`
     font-size: 5rem;
     color:white;
     margin: 1rem;
-    @media screen and (max-width: 1152px){
+    @media screen and (max-width: 1280px){
         width: 5rem;
         height: 5rem;
+        font-size: 3rem;
+    }
+    @media screen and (max-width: 903px){
+      margin: 1rem auto;
+    }
+    @media screen and (max-width: 383px){
+      width: 4rem;
+        height: 4rem;
         font-size: 3rem;
     }
 `
@@ -44,6 +58,10 @@ export const Para = styled.div`
     width: 17rem;
     margin: 1rem;
     font-weight: 400;
+    @media screen and (max-width: 383px){
+      width: 12rem;
+      font-size: 0.9rem;
+    }
 `
 
 
@@ -52,7 +70,12 @@ export const CardHolder = styled.div`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    width: 85%;
+    margin: 0 auto;
     padding: 2rem;
+    @media screen and (max-width: 903px){
+      justify-content: center;
+    }
 `
 
 
@@ -60,8 +83,11 @@ export const Card = styled.div`
     margin: 2rem;
     width: 30rem;
     height: 20rem;
-    @media screen and (max-width: 1152px){
+    @media screen and (max-width: 1280px){
         width: 20rem;
+    }
+    @media screen and (max-width: 383px){
+        width: 15rem;
     }
 `
 
@@ -79,9 +105,14 @@ export const HeadingLanding = styled.h1`
 export const Link = styled(LinkRouter)`
   text-decoration: none;
   color: var(--blue);
-  font-size: 1rem;
+  font-size: 1.35rem;
   @media screen and (max-width: 450px) {
-    font-size: 0.75rem;
+    font-size: 1rem;
+  }
+  &:hover {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    border-bottom: 2px solid var(--blue);
   }
 `;
 
@@ -90,4 +121,7 @@ export const HeadingContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 3rem 4rem;
+  @media screen and (max-width: 450px) {
+    padding: 3rem 2rem;
+  }
 `;
