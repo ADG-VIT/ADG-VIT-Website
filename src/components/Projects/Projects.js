@@ -11,11 +11,11 @@ const responsive = {
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1440 },
+    breakpoint: { max: 3000, min: 1240 },
     items: 4,
   },
   tablet: {
-    breakpoint: { max: 1440, min: 1130 },
+    breakpoint: { max: 1240, min: 1130 },
     items: 3,
   },
   smallTablet: {
@@ -28,12 +28,18 @@ const responsive = {
   },
 };
 
-export default function Projects() {
+export default function Projects(props) {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
+
+  const handleUpdate = (value) => {
+    setIsUpdated({ value: true, data: value });
+    props.ready();
+  }
+
   React.useEffect(() => {
     Axios.get("https://backend-events.herokuapp.com/projects?q=0").then(
       (value) => {
-        setIsUpdated({ value: true, data: value });
+        handleUpdate(value);
       }
     );
   }, []);

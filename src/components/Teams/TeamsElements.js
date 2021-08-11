@@ -14,6 +14,7 @@ export const CardWrapper = styled.div`
     height: 17rem;
     margin: 2rem 1rem;
     position: relative;
+    overflow: hidden;
 `
 
 export const CardImage = styled.img`
@@ -23,7 +24,7 @@ export const CardImage = styled.img`
     opacity: 0.75;
     transition: all 0.75s ease;
     ${CardWrapper}:hover & {
-        opacity: 0.4;
+        opacity: 0.2;
     }
 `
 
@@ -46,7 +47,7 @@ export const CardTitle = styled.h1`
     font-weight: 700;
 `
 export const CardDesig = styled.h1`
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--dark-mode-text);
     text-align: left;
     padding-left: 1rem;
