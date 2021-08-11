@@ -177,9 +177,12 @@ export const NavDropLink = styled(LinkRouter)`
   padding: 10px 20px;
   width: 100%;
   color: var(--navbar-text);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: var(--text);
     background-color: rgba(95, 46, 234, 0.4);
+    border-left: 3px solid var(--blue);
   }
 `;

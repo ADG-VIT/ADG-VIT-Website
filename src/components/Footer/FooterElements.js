@@ -69,7 +69,6 @@ export const LinksWrap = styled.div`
 export const FooterLink = styled(LinkRouter)`
   color: var(--text);
   margin: 0.4rem 0;
-  font-weight: 600;
 `;
 
 export const FollowUsWrap = styled.div`
