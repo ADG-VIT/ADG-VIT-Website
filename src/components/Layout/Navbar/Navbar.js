@@ -22,9 +22,15 @@ const Navbar = ({ toggle }) => {
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  }
+  const openDropdown = () => {
+    setDropdownOpen(true);
+  }
   return (
     <>
-      <Nav>
+      <Nav onClick={closeDropdown}>
         <NavbarContainer>
           <NavLogo to="/">
               <img src={ADGLogo} alt="ADG Logo"></img>
@@ -57,7 +63,7 @@ const Navbar = ({ toggle }) => {
               <NavLinks to="/team">Team</NavLinks>
             </NavItem>
           </NavMenu>
-          <NavUser onClick={toggleDropdown}>
+          <NavUser onMouseEnter={openDropdown} onClick={toggleDropdown}>
               <img src={userIcon} alt="User Icon"></img>
           </NavUser>
           <NavDropdown dropdownOpen={dropdownOpen}>
