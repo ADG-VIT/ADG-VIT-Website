@@ -7,8 +7,8 @@ export default function Partners() {
   return (
     <div style={{ margin: "5rem 0" }}>
       <HeadingContainer>
-        <Heading>Our Projects</Heading>
-        <SeeAll to="/projects/">See All</SeeAll>
+        <Heading>Our Partners</Heading>
+        <SeeAll to="/partners/">See All</SeeAll>
       </HeadingContainer>
       <PartnersWrap>
         <Partner>
