@@ -15,15 +15,15 @@ const responsive = {
     items: 4,
   },
   tablet: {
-    breakpoint: { max: 1440, min: 1024 },
+    breakpoint: { max: 1440, min: 1130 },
     items: 3,
   },
   smallTablet: {
-    breakpoint: { max: 1024, min: 620 },
+    breakpoint: { max: 1130, min: 778 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 620, min: 0 },
+    breakpoint: { max: 778, min: 0 },
     items: 1,
   },
 };

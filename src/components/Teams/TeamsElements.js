@@ -21,6 +21,10 @@ export const CardImage = styled.img`
     height: 100%;
     border-radius: 15px;
     opacity: 0.75;
+    transition: all 0.75s ease;
+    ${CardWrapper}:hover & {
+        opacity: 0.4;
+    }
 `
 
 export const CardBody = styled.div`

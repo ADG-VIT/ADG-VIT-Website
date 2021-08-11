@@ -53,7 +53,7 @@ export const CardImage = styled.img`
   object-fit: cover;
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
-  overflow: hidden;
+  height: 20rem;
   ${CardWrapper}:hover & {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);

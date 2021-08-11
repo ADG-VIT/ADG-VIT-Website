@@ -19,7 +19,7 @@ const ProjectItem = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    window.location.href = "https://www.google.com";
+    window.location.href = props.more;
   }
 
   if (props.right) {
