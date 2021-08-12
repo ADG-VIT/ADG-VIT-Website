@@ -3,7 +3,7 @@ import { Link as LinkRouter } from "react-router-dom";
 
 export const Heading = styled.h1`
     font-size: 2.5rem;
-    color: var(--dark-mode-text);
+    color: var(--text);
     text-align: left;
     margin: 1rem;
     @media screen and (max-width: 1280px){
@@ -19,7 +19,7 @@ export const Heading = styled.h1`
 
 export const Main = styled.h1`
     font-size: 2rem;
-    color: var(--dark-mode-text);
+    color: var(--text);
     text-align: center;
     margin: 1rem;
 `
@@ -51,7 +51,7 @@ export const Box = styled.div`
 `
 
 export const Para = styled.div`
-    color: var(--navbar-light);
+    color: var(--text);
     font-size: 1.2rem;
     padding-left: 1rem;
     border-left: 4px solid #5E05C7;
@@ -92,7 +92,7 @@ export const Card = styled.div`
 
 
 export const HeadingLanding = styled.h1`
-  color: var(--dark-mode-text);
+  color: var(--text);
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 42px;

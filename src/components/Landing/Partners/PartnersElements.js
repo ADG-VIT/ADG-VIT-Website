@@ -12,7 +12,7 @@ export const HeadingContainer = styled.div`
 `;
 
 export const Heading = styled.h1`
-  color: var(--dark-mode-text);
+  color: var(--text);
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 42px;

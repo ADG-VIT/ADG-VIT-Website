@@ -13,7 +13,7 @@ export const HeadingContainer = styled.div`
 `;
 
 export const Heading = styled.h1`
-  color: var(--dark-mode-text);
+  color: var(--text);
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 42px;
@@ -87,7 +87,7 @@ export const ProjectWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  color: var(--dark-mode-text);
+  color: var(--text);
   gap: 3rem;
   width: 80%;
   margin: 5rem auto 10rem;
