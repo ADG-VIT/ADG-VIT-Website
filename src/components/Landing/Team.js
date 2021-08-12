@@ -3,7 +3,7 @@ import Teams from "../Teams/Teams"
 
 export default function Team() {
     return (
-        <div>
+        <div style={{"margin": "5rem 0"}}>
             <Teams />
         </div>
     )

@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectItem from "./ProjectItem";
 import Axios from "axios";
-import {Title} from "./ProjectElements"
+import {Title} from "./ProjectElements";
 
 const ProjectList = () => {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });

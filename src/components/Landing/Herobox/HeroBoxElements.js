@@ -9,7 +9,7 @@ export const HeroBoxContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: var(--text);
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,10 +93,14 @@ export const JoinUsButton = styled(LinkRouter)`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text);
+  color: rgba(255, 255, 255, 0.8);
   border: none;
   border-radius: 10px;
   margin-bottom: 10px;
+
+  :hover {
+    color: rgba(255, 255, 255, 1);
+  }
 
   @media screen and (max-width: 400px) {
     width: 50%;

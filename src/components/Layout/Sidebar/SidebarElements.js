@@ -59,7 +59,7 @@ export const SidebarLink = styled(LinkR)`
   transition: 0;
   transition: all 2x ease-in-out;
   text-decoration: none;
-  color: #fff;
+  color: var(--text);
   cursor: pointer;
 
   &:active {

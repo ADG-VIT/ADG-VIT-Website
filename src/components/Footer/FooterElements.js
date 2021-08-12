@@ -69,7 +69,6 @@ export const LinksWrap = styled.div`
 export const FooterLink = styled(LinkRouter)`
   color: var(--text);
   margin: 0.4rem 0;
-  font-weight: 600;
 `;
 
 export const FollowUsWrap = styled.div`
@@ -129,7 +128,7 @@ export const TopButton = styled(LinkScroll)`
   bottom: 1rem;
   right: 1rem;
   background-color: var(--blue);
-  color: var(--text);
+  color: white;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -137,4 +136,21 @@ export const TopButton = styled(LinkScroll)`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+`;
+
+export const ToggleTheme = styled.div`
+  position: absolute;
+  bottom: 5rem;
+  right: 1rem;
+  background-color: var(--blue);
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;
