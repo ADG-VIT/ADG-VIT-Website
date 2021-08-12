@@ -4,6 +4,7 @@ import dropdownDark from "./assets/dropdown-dark.svg";
 
 export const Nav = styled.nav`
   background-color: var(--navbar-bg);
+  backdrop-filter: blur(15px);
   width: 100%;
   height: 80px;
   display: flex;
@@ -68,6 +69,12 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   text-decoration: none;
+
+  .link-active {
+    transition: all 0.1s ease-in-out;
+    border-bottom: 2px solid var(--blue);
+    color: var(--text);
+  }
 `;
 
 export const NavLinks = styled(LinkRouter)`
@@ -152,20 +159,20 @@ export const NavUser = styled.button`
 
 export const NavDropdown = styled.div`
   position: absolute;
-  top: 50px;
+  top: 70px;
   right: 20px;
-  background-image: url(${dropdownDark});
+  background-color: var(--navbar-bg);
+  /* background-image: url(${dropdownDark});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain; */
   display: ${({ dropdownOpen }) => (dropdownOpen ? "flex" : "none")};
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 20px 0px;
   z-index: 12;
   transition: all 0.3s ease-in-out;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
 
   @media screen and (max-width: 850px) {

@@ -9,7 +9,7 @@ export const HeroBoxContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: var(--text);
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
