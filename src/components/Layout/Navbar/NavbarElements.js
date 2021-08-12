@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
-import dropdownDark from "./assets/dropdown-dark.svg";
 
 export const Nav = styled.nav`
-  background-color: var(--navbar-bg);
+  background-color: ${({ isHeroSection }) => (isHeroSection ? 'black' : 'transparent')};
   backdrop-filter: blur(15px);
   width: 100%;
   height: 80px;
@@ -21,6 +20,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavbarContainer = styled.div`
+  background-color: ${({ isHeroSection }) => (isHeroSection ? 'var(--navbar-dark)' : 'var(--navbar-bg)')};
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -46,7 +46,7 @@ export const MobileIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 850px) {
-    color: var(--text);
+    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
     display: flex;
     align-items: center;
     font-size: 1.5rem;
@@ -73,12 +73,12 @@ export const NavItem = styled.li`
   .link-active {
     transition: all 0.1s ease-in-out;
     border-bottom: 2px solid var(--blue);
-    color: var(--text);
+    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
   }
 `;
 
 export const NavLinks = styled(LinkRouter)`
-  color: var(--navbar-text);
+  color: ${({ isHeroSection }) => (isHeroSection ? 'var(--navbar-dark-text)' : 'var(--navbar-text)')};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -98,7 +98,7 @@ export const NavLinks = styled(LinkRouter)`
   &:active {
     transition: all 0.1s ease-in-out;
     border-bottom: 2px solid var(--blue);
-    color: var(--text);
+    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
   }
 `;
 
@@ -128,7 +128,7 @@ export const NavBtnLink = styled.button`
   border-radius: 5px;
   white-space: nowrap;
   padding: 5px 15px;
-  color: var(--text);
+  color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
   font-size: 1rem;
   border: 2px solid var(--blue);
   transition: all 0.2s ease-in-out;
@@ -161,11 +161,7 @@ export const NavDropdown = styled.div`
   position: absolute;
   top: 70px;
   right: 20px;
-  background-color: var(--navbar-bg);
-  /* background-image: url(${dropdownDark});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; */
+  background-color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dropdown-dark)' : 'var(--dropdown-bg)')};
   display: ${({ dropdownOpen }) => (dropdownOpen ? "flex" : "none")};
   flex-direction: column;
   align-items: flex-start;
@@ -174,6 +170,7 @@ export const NavDropdown = styled.div`
   transition: all 0.3s ease-in-out;
   border-radius: 10px;
   overflow: hidden;
+  backdrop-filter: blur(15px);
 
   @media screen and (max-width: 850px) {
     display: none;
@@ -183,12 +180,12 @@ export const NavDropdown = styled.div`
 export const NavDropLink = styled(LinkRouter)`
   padding: 10px 20px;
   width: 100%;
-  color: var(--navbar-text);
+  color: ${({ isHeroSection }) => (isHeroSection ? 'var(--navbar-dark-text)' : 'var(--navbar-text)')};
   border-left: 3px solid transparent;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    color: var(--text);
+    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
     background-color: rgba(95, 46, 234, 0.4);
     border-left: 3px solid var(--blue);
   }
