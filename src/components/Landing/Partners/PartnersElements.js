@@ -5,7 +5,7 @@ export const HeadingContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 4rem;
+  padding: 0 4rem 3rem;
   @media screen and (max-width: 450px) {
     padding: 3rem 2rem;
   }
@@ -25,6 +25,7 @@ export const SeeAll = styled(LinkRouter)`
   text-decoration: none;
   color: var(--blue);
   font-size: 1.35rem;
+  border-bottom: 2px solid transparent;
   @media screen and (max-width: 450px) {
     font-size: 1rem;
   }

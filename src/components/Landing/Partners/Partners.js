@@ -1,6 +1,5 @@
 import React from "react";
-import { Heading, HeadingContainer } from "../../Projects/ProjectElements";
-import { Partner, PartnersWrap, SeeAll } from "./PartnersElements";
+import { Partner, PartnersWrap, SeeAll, Heading, HeadingContainer } from "./PartnersElements";
 import image from "./assets/image.png";
 
 export default function Partners() {
@@ -74,4 +73,72 @@ export default function Partners() {
       </PartnersWrap>
     </div>
   );
+}
+
+
+export const PartnerFull = () => {
+  return (
+    <PartnersWrap>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+        <Partner>
+          <img src={image} alt="" />
+        </Partner>
+      </PartnersWrap>
+  )
 }
