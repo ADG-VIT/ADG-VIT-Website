@@ -7,6 +7,7 @@ import ProjectList from "./components/Projects/ProjectList";
 import Domain from "./components/Domains/Domain";
 import { FullTeams } from "./components/Teams/Teams";
 import {PartnerFull} from "./components/Landing/Partners/Partners"
+import EventsList from "./components/Events/index"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Layout />
         <Switch>
           <Route exact path="/" component={Landing} />
+          <Route exact path="/events/" component={EventsList} />
           <Route exact path="/projects/" component={ProjectList} />
           <Route exact path="/domains/" component={Domain} />
           <Route exact path="/team/" component={FullTeams} />
