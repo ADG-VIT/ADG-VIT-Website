@@ -4,7 +4,7 @@ export const SpinnerBox = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--dark-mode-bg);
+  background-color: var(--background);
   width: 100%;
   height: 100vh;
   z-index: 10;
@@ -17,9 +17,9 @@ export const Spinner = styled.div`
   display: inline-block;
   width: 50px;
   height: 50px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid var(--text);
   border-radius: 50%;
-  border-top-color: #fff;
+  border-top-color: rgba(255, 255, 255, 0.3);
   animation: spin 1s ease-in-out infinite;
   -webkit-animation: spin 1s ease-in-out infinite;
   @keyframes spin {
