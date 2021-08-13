@@ -18,10 +18,12 @@ import {
   SecTextWrap,
 } from "./EventsElements";
 import image from "./assets/event.png";
+import Fade from "react-reveal/Fade"
 
 export default function Events() {
   return (
-    <div style={{ margin: "5rem 0" }}>
+    <Fade bottom>
+      <div style={{ margin: "5rem 0" }}>
       <EventsContainer>
         <HeadingContainer>
           <Heading>Our Events</Heading>
@@ -90,5 +92,6 @@ export default function Events() {
         </CardsWrap>
       </EventsContainer>
     </div>
+    </Fade>
   );
 }

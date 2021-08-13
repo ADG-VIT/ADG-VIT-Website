@@ -44,7 +44,7 @@ export default function Projects(props) {
     );
   }, []);
   return (
-    <React.Fragment>
+      <React.Fragment>
       <HeadingContainer>
         <Heading>Our Projects</Heading>
         <SeeAll to="/projects/">See All</SeeAll>
