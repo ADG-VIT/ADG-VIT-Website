@@ -17,6 +17,7 @@ import { FaBars } from "react-icons/fa";
 import {useClickAway} from 'react-use';
 import userIcon from './assets/user-icon.svg';
 import ADGLogo from './assets/adg-logo-dark.png';
+import SignInModal from "../../SignIn/Signin"
 
 const Navbar = ({ toggle }) => {
   
@@ -39,6 +40,15 @@ const Navbar = ({ toggle }) => {
     closeDropdown();
   });
 
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
+  const handleClose = (e) => {
+    if(e.target.id === "wrapper"){
+      setIsOpen(false);
+    }
+  }
   return (
     <>
       <Nav>
@@ -79,10 +89,11 @@ const Navbar = ({ toggle }) => {
           </NavUser>
           <NavDropdown ref={ref} dropdownOpen={dropdownOpen}>
               <NavDropLink onClick={toggleDropdown} to="/">Create an Account</NavDropLink>
-              <NavDropLink onClick={toggleDropdown} to="/">Login</NavDropLink>
+              <NavDropLink onClick={handleOpen}>Login</NavDropLink>
           </NavDropdown>
         </NavbarContainer>
       </Nav>
+      {isOpen && <SignInModal onClose={handleClose} />}
     </>
   );
 }

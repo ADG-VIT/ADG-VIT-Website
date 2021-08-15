@@ -180,13 +180,13 @@ export const NavDropdown = styled.div`
   }
 `;
 
-export const NavDropLink = styled(LinkRouter)`
+export const NavDropLink = styled.p`
   padding: 10px 20px;
   width: 100%;
   color: var(--navbar-text);
   border-left: 3px solid transparent;
   transition: all 0.2s ease-in-out;
-
+  cursor: pointer;
   &:hover {
     color: var(--text);
     background-color: rgba(95, 46, 234, 0.4);

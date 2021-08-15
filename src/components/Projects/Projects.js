@@ -33,7 +33,6 @@ export default function Projects(props) {
 
   const handleUpdate = (value) => {
     setIsUpdated({ value: true, data: value });
-    props.ready();
   }
 
   React.useEffect(() => {

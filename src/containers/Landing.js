@@ -17,8 +17,8 @@ const Landing = () => {
         <div style={style}>
         {!isReady && <SpinnerBox><Spinner /></SpinnerBox>}
         <HeroBox />
-          <Events />
-            <Projects handleView = {handleView}/>
+          <Events ready={handleView} />
+            <Projects />
             <Domain />
             <Partners />
             <Teams />
