@@ -14,9 +14,10 @@ import {
   NavDropLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
-import { useClickAway } from "react-use";
-import userIcon from "./assets/user-icon.svg";
-import ADGLogo from "./assets/adg-logo-dark.png";
+import {useClickAway} from 'react-use';
+import userIcon from './assets/user-icon.svg';
+import ADGLogo from './assets/adg-logo-dark.png';
+import SignInModal from "../../SignIn/Signin"
 
 const Navbar = ({ toggle }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -39,15 +40,15 @@ const Navbar = ({ toggle }) => {
     closeDropdown();
   });
 
-  const toggleIsHeroSection = () => {
-    if (window.scrollY <= window.innerHeight && window.location.pathname === '/') {
-      setIsHeroSection(true);
-    } else {
-      setIsHeroSection(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
+  const handleClose = (e) => {
+    if(e.target.id === "wrapper"){
+      setIsOpen(false);
     }
-  };
-  window.addEventListener("scroll", toggleIsHeroSection);
-
+  }
   return (
     <>
       <Nav onClick={toggleIsHeroSection} isHeroSection={isHeroSection}>
@@ -96,16 +97,13 @@ const Navbar = ({ toggle }) => {
           <NavUser onMouseEnter={openDropdown} onClick={toggleDropdown}>
             <img src={userIcon} alt="User Icon"></img>
           </NavUser>
-          <NavDropdown isHeroSection={isHeroSection} ref={ref} dropdownOpen={dropdownOpen}>
-            <NavDropLink isHeroSection={isHeroSection} onClick={toggleDropdown} to="/">
-              Create an Account
-            </NavDropLink>
-            <NavDropLink isHeroSection={isHeroSection} onClick={toggleDropdown} to="/">
-              Login
-            </NavDropLink>
+          <NavDropdown ref={ref} dropdownOpen={dropdownOpen}>
+              <NavDropLink onClick={toggleDropdown} to="/">Create an Account</NavDropLink>
+              <NavDropLink onClick={handleOpen}>Login</NavDropLink>
           </NavDropdown>
         </NavbarContainer>
       </Nav>
+      {isOpen && <SignInModal onClose={handleClose} />}
     </>
   );
 };

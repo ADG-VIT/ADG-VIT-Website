@@ -33,7 +33,6 @@ export default function Projects(props) {
 
   const handleUpdate = (value) => {
     setIsUpdated({ value: true, data: value });
-    props.ready();
   }
 
   React.useEffect(() => {
@@ -44,7 +43,7 @@ export default function Projects(props) {
     );
   }, []);
   return (
-    <React.Fragment>
+      <React.Fragment>
       <HeadingContainer>
         <Heading>Our Projects</Heading>
         <SeeAll to="/projects/">See All</SeeAll>

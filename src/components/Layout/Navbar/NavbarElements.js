@@ -177,13 +177,13 @@ export const NavDropdown = styled.div`
   }
 `;
 
-export const NavDropLink = styled(LinkRouter)`
+export const NavDropLink = styled.p`
   padding: 10px 20px;
   width: 100%;
   color: ${({ isHeroSection }) => (isHeroSection ? 'var(--navbar-dark-text)' : 'var(--navbar-text)')};
   border-left: 3px solid transparent;
   transition: all 0.2s ease-in-out;
-
+  cursor: pointer;
   &:hover {
     color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
     background-color: rgba(95, 46, 234, 0.4);

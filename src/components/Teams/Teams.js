@@ -1,12 +1,14 @@
 import React from "react";
 import TeamCard from "./TeamCard";
-import { CardHandler } from "./TeamsElements";
+import { CardHandler, Title } from "./TeamsElements";
 import {
   HeadingContainer,
   Heading,
   Link as SeeAll,
 } from "../Projects/ProjectElements";
 import Axios from "axios";
+import {Spinner, SpinnerBox} from "../../containers/spinner"
+import Fade from "react-reveal/Fade"
 
 const Teams = () => {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
@@ -60,15 +62,18 @@ const FullTeams = () => {
       });
     });
   }, []);
+  const style = isUpdated.value ? null : {"height": "10vh", "overflow": "hidden"}
   return (
-    <React.Fragment>
-      <HeadingContainer>
-        <Heading>Our Team</Heading>
-      </HeadingContainer>
+    <div style={style}>
+    {!isUpdated.value && <SpinnerBox><Spinner /></SpinnerBox>}
+      <Fade bottom>
+        <Title>Our Team</Title>
+      </Fade>
       <CardHandler>
         {isUpdated.value &&
           isUpdated.data.data.map((i, ind) => {
             return (
+              <Fade bottom>
               <TeamCard
                 key={ind}
                 name={i.Name}
@@ -78,10 +83,11 @@ const FullTeams = () => {
                 git={i.Github}
                 email={i.Email}
               />
+              </Fade>
             );
           })}
       </CardHandler>
-    </React.Fragment>
+    </div>
   );
 };
 

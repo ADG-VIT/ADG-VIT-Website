@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 
+export const Title = styled.h1`
+    color: var(--text);
+    font-size: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+`
+
 export const CardHandler = styled.div`
     display: flex;
     justify-content: space-around;
@@ -15,6 +22,10 @@ export const CardWrapper = styled.div`
     margin: 2rem 1rem;
     position: relative;
     overflow: hidden;
+    @media screen and (min-width: 1552px){
+        width: 20rem;
+        height: 20rem;
+    }
 `
 
 export const CardImage = styled.img`
@@ -34,7 +45,7 @@ export const CardBody = styled.div`
     border-left: 2px solid white;
     transition: all 0.75s ease;
     ${CardWrapper}:hover & {
-        padding-bottom: 3rem;
+        padding-bottom: 4rem;
     }
 `
 
