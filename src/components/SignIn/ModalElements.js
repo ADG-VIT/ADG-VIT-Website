@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
     top:0;
     backdrop-filter: blur(10px);
     z-index: 20;
+    
 `
 
 export const Box = styled.div`
@@ -19,9 +20,18 @@ export const Box = styled.div`
     justify-content: space-around;
     align-items: center;
     width: 65%;
-    height: 30rem;
+    min-height: 30rem;
     border-radius: 15px;
     background-color: var(--background);
+    @media screen and (max-width: 1376px){
+        min-width: 90%;
+    }
+    @media screen and (max-width: 850px){
+        width: 99%;
+    }
+    @media screen and (max-width: 760px){
+        width: auto;
+    }
 `
 
 export const ImageDiv = styled.div`
@@ -29,6 +39,12 @@ export const ImageDiv = styled.div`
     border-radius: 15px;
     margin: 1rem;
     width: 50%;
+    @media screen and (max-width: 1376px){
+        width: 30rem;
+    }
+    @media screen and (max-width: 760px){
+        display: none;
+    }
 `
 
 export const Image = styled.img`
@@ -51,10 +67,16 @@ export const HeadingHolder = styled.div`
 
 export const Heading1 = styled.h1`
     text-align: center;
+    @media screen and (max-width: 1376px){
+        font-size: 1.5rem;
+    }
 `
 export const Heading4 = styled.h4`
     text-align: center;
     font-weight: 300;
+    @media screen and (max-width: 1376px){
+        width: 20rem;
+    }
 `
 
 export const Form = styled.div`
@@ -63,6 +85,15 @@ export const Form = styled.div`
     grid-template-columns: repeat(1,20rem);
     margin: 2rem 1rem 1rem;
     gap: 1rem;
+    @media screen and (max-width: 1376px){
+        grid-template-columns: repeat(1,15rem);
+    }
+    @media screen and (max-width: 760px){
+        grid-template-columns: repeat(1,20rem);
+    }
+    @media screen and (max-width: 476px){
+        grid-template-columns: repeat(1,15rem);
+    }
 `
 
 export const Input1 = styled.input`
@@ -88,6 +119,7 @@ export const Input2 = styled.input`
     &::placeholder {
         color: var(--text);
     }
+    
 `
 
 export const Forgot = styled(LinkRouter)`
@@ -97,7 +129,6 @@ export const Forgot = styled(LinkRouter)`
 `
 
 export const Button = styled.button`
-  width: 20rem;
   min-height: 2.5rem;
   font-size: 1rem;
   font-weight: 600;
@@ -112,11 +143,6 @@ export const Button = styled.button`
 
   :hover {
     color: rgba(255, 255, 255, 1);
-  }
-
-  @media screen and (max-width: 400px) {
-    width: 50%;
-    font-size: 14px;
   }
 `;
 

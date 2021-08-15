@@ -67,7 +67,7 @@ export default function Events(props) {
               {isUpdated.data.data.map((i, ind) => {
                 if (ind === 0) {
                   return (
-                    <MainEventCard>
+                    <MainEventCard key={ind} >
                       <MainEventImage>
                         <img src={i.posterURL} alt="Event" />
                       </MainEventImage>
@@ -80,7 +80,7 @@ export default function Events(props) {
                   );
                 } else {
                   return (
-                    <SecEventCard>
+                    <SecEventCard  key={ind}>
                       <SecEventImage>
                         <img src={i.posterURL} alt="Event" />
                       </SecEventImage>

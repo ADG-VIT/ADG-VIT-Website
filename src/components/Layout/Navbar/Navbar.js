@@ -1,4 +1,4 @@
-import { React, useState, useRef } from "react";
+import React ,{ useState, useRef } from "react";
 import {
   Nav,
   NavbarContainer,
@@ -26,6 +26,14 @@ const Navbar = ({ toggle }) => {
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
+  const toggleIsHeroSection = () => {
+    if (window.scrollY <= window.innerHeight && window.location.pathname === '/') {
+      setIsHeroSection(true);
+    } else {
+      setIsHeroSection(false);
+    }
+  };
+  window.addEventListener("scroll", toggleIsHeroSection);
 
   const closeDropdown = () => {
     setDropdownOpen(false);
@@ -57,39 +65,39 @@ const Navbar = ({ toggle }) => {
             <img src={ADGLogo} alt="ADG Logo"></img>
           </NavLogo>
           <NavBtn>
-            <NavBtnLink isHeroSection={isHeroSection}>Login</NavBtnLink>
+            <NavBtnLink isHeroSection={isHeroSection} onClick={handleOpen}>Login</NavBtnLink>
           </NavBtn>
           <MobileIcon isHeroSection={isHeroSection} onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/">
+              <NavLinks isHeroSection={isHeroSection} activelassname="link-active" to="/">
                 Home
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/events">
+              <NavLinks isHeroSection={isHeroSection} activelassname="link-active" to="/events">
                 Events
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/projects">
+              <NavLinks isHeroSection={isHeroSection} activelassname="link-active" to="/projects">
                 Projects
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/domains">
+              <NavLinks isHeroSection={isHeroSection} activeclassname="link-active" to="/domains">
                 Domains
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/partners">
+              <NavLinks isHeroSection={isHeroSection} activeclassname="link-active" to="/partners">
                 Partners
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/team">
+              <NavLinks isHeroSection={isHeroSection} activeclassname="link-active" to="/team">
                 Team
               </NavLinks>
             </NavItem>
