@@ -1,10 +1,12 @@
 import React from "react";
 import { Partner, PartnersWrap, SeeAll, Heading, HeadingContainer } from "./PartnersElements";
 import image from "./assets/image.png";
+import Fade from "react-reveal/Fade"
 
 export default function Partners() {
   return (
-    <div style={{ margin: "5rem 0" }}>
+    <Fade bottom>
+      <div style={{ margin: "5rem 0" }}>
       <HeadingContainer>
         <Heading>Our Partners</Heading>
         <SeeAll to="/partners/">See All</SeeAll>
@@ -72,6 +74,7 @@ export default function Partners() {
         </Partner>
       </PartnersWrap>
     </div>
+    </Fade>
   );
 }
 

@@ -1,4 +1,4 @@
-import { React, useState, useRef } from "react";
+import React ,{ useState, useRef } from "react";
 import {
   Nav,
   NavbarContainer,
@@ -14,9 +14,10 @@ import {
   NavDropLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
-import { useClickAway } from "react-use";
-import userIcon from "./assets/user-icon.svg";
-import ADGLogo from "./assets/adg-logo-dark.png";
+import {useClickAway} from 'react-use';
+import userIcon from './assets/user-icon.svg';
+import ADGLogo from './assets/adg-logo-dark.png';
+import SignInModal from "../../SignIn/Signin"
 
 const Navbar = ({ toggle }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -25,6 +26,14 @@ const Navbar = ({ toggle }) => {
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
+  const toggleIsHeroSection = () => {
+    if (window.scrollY <= window.innerHeight && window.location.pathname === '/') {
+      setIsHeroSection(true);
+    } else {
+      setIsHeroSection(false);
+    }
+  };
+  window.addEventListener("scroll", toggleIsHeroSection);
 
   const closeDropdown = () => {
     setDropdownOpen(false);
@@ -39,15 +48,15 @@ const Navbar = ({ toggle }) => {
     closeDropdown();
   });
 
-  const toggleIsHeroSection = () => {
-    if (window.scrollY <= window.innerHeight && window.location.pathname === '/') {
-      setIsHeroSection(true);
-    } else {
-      setIsHeroSection(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
+  const handleClose = (e) => {
+    if(e.target.id === "wrapper"){
+      setIsOpen(false);
     }
-  };
-  window.addEventListener("scroll", toggleIsHeroSection);
-
+  }
   return (
     <>
       <Nav onClick={toggleIsHeroSection} isHeroSection={isHeroSection}>
@@ -56,39 +65,39 @@ const Navbar = ({ toggle }) => {
             <img src={ADGLogo} alt="ADG Logo"></img>
           </NavLogo>
           <NavBtn>
-            <NavBtnLink isHeroSection={isHeroSection}>Login</NavBtnLink>
+            <NavBtnLink isHeroSection={isHeroSection} onClick={handleOpen}>Login</NavBtnLink>
           </NavBtn>
           <MobileIcon isHeroSection={isHeroSection} onClick={toggle}>
             <FaBars />
           </MobileIcon>
           <NavMenu>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/">
+              <NavLinks isHeroSection={isHeroSection} activelassname="link-active" to="/">
                 Home
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/events">
+              <NavLinks isHeroSection={isHeroSection} activelassname="link-active" to="/events">
                 Events
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/projects">
+              <NavLinks isHeroSection={isHeroSection} activelassname="link-active" to="/projects">
                 Projects
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/domains">
+              <NavLinks isHeroSection={isHeroSection} activeclassname="link-active" to="/domains">
                 Domains
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/partners">
+              <NavLinks isHeroSection={isHeroSection} activeclassname="link-active" to="/partners">
                 Partners
               </NavLinks>
             </NavItem>
             <NavItem isHeroSection={isHeroSection}>
-              <NavLinks isHeroSection={isHeroSection} activeClassName="link-active" to="/team">
+              <NavLinks isHeroSection={isHeroSection} activeclassname="link-active" to="/team">
                 Team
               </NavLinks>
             </NavItem>
@@ -96,16 +105,13 @@ const Navbar = ({ toggle }) => {
           <NavUser onMouseEnter={openDropdown} onClick={toggleDropdown}>
             <img src={userIcon} alt="User Icon"></img>
           </NavUser>
-          <NavDropdown isHeroSection={isHeroSection} ref={ref} dropdownOpen={dropdownOpen}>
-            <NavDropLink isHeroSection={isHeroSection} onClick={toggleDropdown} to="/">
-              Create an Account
-            </NavDropLink>
-            <NavDropLink isHeroSection={isHeroSection} onClick={toggleDropdown} to="/">
-              Login
-            </NavDropLink>
+          <NavDropdown ref={ref} dropdownOpen={dropdownOpen}>
+              <NavDropLink onClick={toggleDropdown} to="/">Create an Account</NavDropLink>
+              <NavDropLink onClick={handleOpen}>Login</NavDropLink>
           </NavDropdown>
         </NavbarContainer>
       </Nav>
+      {isOpen && <SignInModal onClose={handleClose} />}
     </>
   );
 };

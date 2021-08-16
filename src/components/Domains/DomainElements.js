@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
 
 export const Heading = styled.h1`
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     color: var(--text);
     text-align: left;
     margin: 1rem;
@@ -52,7 +52,7 @@ export const Box = styled.div`
 
 export const Para = styled.div`
     color: var(--text);
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding-left: 1rem;
     border-left: 4px solid #5E05C7;
     width: 19rem;
@@ -87,6 +87,12 @@ export const Card = styled.div`
     }
     @media screen and (max-width: 383px){
         width: 15rem;
+    }
+    @media screen and (min-width: 1487px){
+      width: 25rem;
+    }
+    @media screen and (min-width: 1617px){
+      width: 30rem;
     }
 `
 

@@ -17,78 +17,87 @@ import {
   SecEventImage,
   SecTextWrap,
 } from "./EventsElements";
-import image from "./assets/event.png";
+import Fade from "react-reveal/Fade";
+import Axios from "axios";
 
-export default function Events() {
+export default function Events(props) {
+  const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
+  React.useEffect(() => {
+    Axios.get("https://backend-events.herokuapp.com/events?q=4").then(
+      (data) => {
+        handleUpdate(data);
+      }
+    );
+  }, []);
+  const convertTime = (time) => {
+    var a = new Date(time * 1000);
+    var months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    return date + " " + month + " " + year;
+  };
+  const handleUpdate = (data) => {
+    setIsUpdated({value: true, data: data});
+    props.ready();
+  }
   return (
-    <div style={{ margin: "5rem 0" }}>
-      <EventsContainer>
-        <HeadingContainer>
-          <Heading>Our Events</Heading>
-          <SeeAll to="/events/">See All</SeeAll>
-        </HeadingContainer>
-        <CardsWrap>
-          <MainEventCard>
-            <MainEventImage>
-              <img src={image} alt="Event" />
-            </MainEventImage>
-            <MainTextWrap>
-              <MainEventHeading>Recruitment</MainEventHeading>
-              <MainEventDescription>
-                Apple Developers Group conducts a 48 hour long hackathon that
-                encourages young developers to come up with scintillating
-                technical solutions
-              </MainEventDescription>
-              <MainEventDate>Jan 20, 2021</MainEventDate>
-            </MainTextWrap>
-          </MainEventCard>
-
-          <SecEventCard>
-            <SecEventImage>
-              <img src={image} alt="Event" />
-            </SecEventImage>
-            <SecTextWrap>
-              <SecEventHeading>Recruitment</SecEventHeading>
-              <SecEventDescription>
-                Apple Developers Group conducts a 48 hour long hackathon that
-                encourages young developers to come up with scintillating
-                technical solutions
-              </SecEventDescription>
-              <SecEventDate>Jan 20, 2021</SecEventDate>
-            </SecTextWrap>
-          </SecEventCard>
-
-          <SecEventCard>
-            <SecEventImage>
-              <img src={image} alt="Event" />
-            </SecEventImage>
-            <SecTextWrap>
-              <SecEventHeading>Recruitment</SecEventHeading>
-              <SecEventDescription>
-                Apple Developers Group conducts a 48 hour long hackathon that
-                encourages young developers to come up with scintillating
-                technical solutions
-              </SecEventDescription>
-              <SecEventDate>Jan 20, 2021</SecEventDate>
-            </SecTextWrap>
-          </SecEventCard>
-
-          <SecEventCard>
-            <SecEventImage>
-              <img src={image} alt="Event" />
-            </SecEventImage>
-            <SecTextWrap>
-              <SecEventHeading>Recruitment</SecEventHeading>
-              <SecEventDescription>
-                Apple Developers Group conducts a 48 hour long hackathon that
-                encourages young developers to come up with scintillating
-                technical solutions
-              </SecEventDescription>
-              <SecEventDate>Jan 20, 2021</SecEventDate>
-            </SecTextWrap>
-          </SecEventCard>
-        </CardsWrap>
-      </EventsContainer>
-    </div>
+    <Fade bottom>
+      <div style={{ margin: "5rem 0" }}>
+        <EventsContainer>
+          <HeadingContainer>
+            <Heading>Our Events</Heading>
+            <SeeAll to="/events/">See All</SeeAll>
+          </HeadingContainer>
+          {isUpdated.value && (
+            <CardsWrap>
+              {isUpdated.data.data.map((i, ind) => {
+                if (ind === 0) {
+                  return (
+                    <MainEventCard key={ind} >
+                      <MainEventImage>
+                        <img src={i.posterURL} alt="Event" />
+                      </MainEventImage>
+                      <MainTextWrap>
+                        <MainEventHeading>{i.name}</MainEventHeading>
+                        <MainEventDescription>{i.info}</MainEventDescription>
+                        <MainEventDate>{convertTime(i.date)}</MainEventDate>
+                      </MainTextWrap>
+                    </MainEventCard>
+                  );
+                } else {
+                  return (
+                    <SecEventCard  key={ind}>
+                      <SecEventImage>
+                        <img src={i.posterURL} alt="Event" />
+                      </SecEventImage>
+                      <SecTextWrap>
+                        <SecEventHeading>{i.name}</SecEventHeading>
+                        <SecEventDescription>{i.info}</SecEventDescription>
+                        <SecEventDate>{convertTime(i.date)}</SecEventDate>
+                      </SecTextWrap>
+                    </SecEventCard>
+                  );
+                }
+              })}
+            </CardsWrap>
+          )}
+          <CardsWrap></CardsWrap>
+        </EventsContainer>
+      </div>
+    </Fade>
   );
 }

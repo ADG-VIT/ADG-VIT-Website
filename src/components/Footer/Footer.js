@@ -33,6 +33,7 @@ import {
 } from "react-icons/fa";
 
 import { MdKeyboardArrowUp } from "react-icons/md";
+import Fade from "react-reveal/Fade"
 
 const Footer = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -91,7 +92,7 @@ const Footer = () => {
   }, [darkMode]);
 
   return (
-    <>
+    <Fade bottom>
       <FooterContainer>
         <FooterDescriptionWrap>
           <AdgLogoWrap>
@@ -176,7 +177,7 @@ const Footer = () => {
           {darkMode ? <FaMoon /> : <FaSun />}
         </ToggleTheme>
       </FooterContainer>
-    </>
+    </Fade>
   );
 };
 
