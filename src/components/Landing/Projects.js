@@ -4,8 +4,8 @@ import Fade from 'react-reveal/Fade';
 
 export default function Projects(props) {
     return (
-        <div style={{"margin": "5rem 0"}}>
-            <Fade bottom>
+        <div style={{"margin": "3rem 0"}}>
+            <Fade bottom distance="25%">
             <Project ready={props.handleView} />
             </Fade>
         </div>

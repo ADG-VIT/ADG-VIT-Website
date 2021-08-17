@@ -92,7 +92,7 @@ const Footer = () => {
   }, [darkMode]);
 
   return (
-    <Fade bottom>
+    <Fade bottom distance="25%">
       <FooterContainer>
         <FooterDescriptionWrap>
           <AdgLogoWrap>

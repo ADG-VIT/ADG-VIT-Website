@@ -34,7 +34,7 @@ export const CardImage = styled.img`
     border-radius: 15px;
     transition: all 0.75s ease;
     ${CardWrapper}:hover & {
-        opacity: 0.2;
+        filter: brightness(20%);
     }
 `
 
@@ -51,14 +51,14 @@ export const CardBody = styled.div`
 
 export const CardTitle = styled.h1`
     font-size: 1.7rem;
-    color: var(--text);
+    color: white;
     text-align: left;
     padding-left: 1rem;
     font-weight: 700;
 `
 export const CardDesig = styled.h1`
     font-size: 1rem;
-    color: var(--text);
+    color: white;
     text-align: left;
     padding-left: 1rem;
     font-weight: 300;
@@ -79,10 +79,7 @@ export const CardSocials = styled.div`
 
 export const Cardlink = styled.a`
     text-decoration: none;
-    color: var(--text);
+    color: white;
     margin: 1rem;
     transition: all 0.5s ease;
-    ${CardWrapper}:hover & {
-        color: var(--text);
-    }
 `

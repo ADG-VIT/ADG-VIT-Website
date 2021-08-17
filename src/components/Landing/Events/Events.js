@@ -56,7 +56,7 @@ export default function Events(props) {
   }
   return (
     <Fade bottom>
-      <div style={{ margin: "5rem 0" }}>
+      <div style={{ margin: "3rem 0" }}>
         <EventsContainer>
           <HeadingContainer>
             <Heading>Our Events</Heading>
