@@ -19,16 +19,28 @@ import {
 } from "./EventsElements";
 import Fade from "react-reveal/Fade";
 import Axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { setEvent } from "../../../store/Event";
 
 export default function Events(props) {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
-  React.useEffect(() => {
+  const data = useSelector((state) => state.event.event);
+  const dispatch = useDispatch();
+  if (data !== null && !isUpdated.value) {
+    setIsUpdated({
+      value: true,
+      data: data,
+    });
+    props.ready();
+  } else if (!isUpdated.value) {
     Axios.get("https://backend-events.herokuapp.com/events?q=4").then(
       (data) => {
-        handleUpdate(data);
+        setIsUpdated({ value: true, data: data.data });
+        props.ready();
+        dispatch(setEvent({ payload: data.data }));
       }
     );
-  }, []);
+  }
   const convertTime = (time) => {
     var a = new Date(time * 1000);
     var months = [
@@ -50,54 +62,54 @@ export default function Events(props) {
     var date = a.getDate();
     return date + " " + month + " " + year;
   };
-  const handleUpdate = (data) => {
-    setIsUpdated({value: true, data: data});
-    props.ready();
-  }
   return (
-    <Fade bottom>
-      <div style={{ margin: "3rem 0" }}>
-        <EventsContainer>
+    <div style={{ margin: "3rem 0" }}>
+      <EventsContainer>
+        <Fade bottom>
           <HeadingContainer>
             <Heading>Our Events</Heading>
             <SeeAll to="/events/">See All</SeeAll>
           </HeadingContainer>
-          {isUpdated.value && (
-            <CardsWrap>
-              {isUpdated.data.data.map((i, ind) => {
-                if (ind === 0) {
-                  return (
-                    <MainEventCard key={ind} >
-                      <MainEventImage>
-                        <img src={i.posterURL} alt="Event" />
-                      </MainEventImage>
-                      <MainTextWrap>
-                        <MainEventHeading>{i.name}</MainEventHeading>
-                        <MainEventDescription>{i.info}</MainEventDescription>
-                        <MainEventDate>{convertTime(i.date)}</MainEventDate>
-                      </MainTextWrap>
-                    </MainEventCard>
-                  );
-                } else {
-                  return (
-                    <SecEventCard  key={ind}>
-                      <SecEventImage>
-                        <img src={i.posterURL} alt="Event" />
-                      </SecEventImage>
-                      <SecTextWrap>
-                        <SecEventHeading>{i.name}</SecEventHeading>
-                        <SecEventDescription>{i.info}</SecEventDescription>
-                        <SecEventDate>{convertTime(i.date)}</SecEventDate>
-                      </SecTextWrap>
-                    </SecEventCard>
-                  );
-                }
-              })}
-            </CardsWrap>
-          )}
-          <CardsWrap></CardsWrap>
-        </EventsContainer>
-      </div>
-    </Fade>
+        </Fade>
+        {isUpdated.value && (
+          <CardsWrap>
+            {isUpdated.data.map((i, ind) => {
+              if (ind === 0) {
+                return (
+                  <MainEventCard key={ind}>
+                    <Fade bottom distance="25%" duration={500} delay={0} fraction={0.1}>
+                    <MainEventImage>
+                      <img src={i.posterURL} alt="Event" />
+                    </MainEventImage>
+                    <MainTextWrap>
+                      <MainEventHeading>{i.name}</MainEventHeading>
+                      <MainEventDescription>{i.info}</MainEventDescription>
+                      <MainEventDate>{convertTime(i.date)}</MainEventDate>
+                    </MainTextWrap>
+                    </Fade>
+                  </MainEventCard>
+                );
+              } else {
+                return (
+                  <SecEventCard key={ind}>
+                    <Fade bottom distance="25%" duration={500} delay={ind*150}>
+                    <SecEventImage>
+                      <img src={i.posterURL} alt="Event" />
+                    </SecEventImage>
+                    <SecTextWrap>
+                      <SecEventHeading>{i.name}</SecEventHeading>
+                      <SecEventDescription>{i.info}</SecEventDescription>
+                      <SecEventDate>{convertTime(i.date)}</SecEventDate>
+                    </SecTextWrap>
+                    </Fade>
+                  </SecEventCard>
+                );
+              }
+            })}
+          </CardsWrap>
+        )}
+        <CardsWrap></CardsWrap>
+      </EventsContainer>
+    </div>
   );
 }

@@ -16,12 +16,12 @@ const Domain = () => {
       <Main>Our Domains</Main>
       </Fade>
       <CardHolder>
-        <Fade bottom><DomainCard key={0} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
-        <Fade bottom><DomainCard key={1} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
-        <Fade bottom><DomainCard key={2} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
-        <Fade bottom><DomainCard key={3} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
-        <Fade bottom><DomainCard key={4} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
-        <Fade bottom><DomainCard key={5} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={0}><DomainCard key={0} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={100}><DomainCard key={1} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={200}><DomainCard key={2} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={300}><DomainCard key={3} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={400}><DomainCard key={4} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={500}><DomainCard key={5} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
       </CardHolder>
     </React.Fragment>
   );
@@ -37,12 +37,12 @@ const DomainLanding = () => {
         <Link to="/domains/">See All</Link>
       </HeadingContainer>
       <CardHolder>
-        <DomainCard key={0} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" />
-        <DomainCard key={1} name="Android Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="android" />
-        <DomainCard key={2} name="Android Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="android" />
-        <DomainCard key={3} name="iOS Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="ios" />
-        <DomainCard key={4} name="iOS Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="ios" />
-        <DomainCard key={5} name="Design Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="design" />
+        <Fade bottom distance="25%" duration={500} delay={0}><DomainCard key={0} name="Web Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="web" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={100}><DomainCard key={1} name="Android Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="android" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={200}><DomainCard key={2} name="Android Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="android" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={300}><DomainCard key={3} name="iOS Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="ios" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={400}><DomainCard key={4} name="iOS Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="ios" /></Fade>
+        <Fade bottom distance="25%" duration={500} delay={500}><DomainCard key={5} name="Design Domain" info="Apple Developers Group conducts a 48 hour long hackathon " icon="design" /></Fade>
       </CardHolder>
     </React.Fragment>
   );
