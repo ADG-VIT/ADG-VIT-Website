@@ -4,29 +4,37 @@ import Axios from "axios";
 import {Title} from "./ProjectElements";
 import Fade from "react-reveal/Fade"
 import {Spinner, SpinnerBox} from "../../containers/spinner"
+import { useDispatch, useSelector } from "react-redux";
+import { setProject } from "../../store/Project";
+
 
 const ProjectList = () => {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
-  React.useEffect(() => {
+  const data = useSelector((state) => state.project.project);
+  const dispatch = useDispatch();
+  if(data !== null && !isUpdated.value){
+    setIsUpdated({ value: true, data: data });
+  } else if (!isUpdated.value) {
     Axios.get("https://backend-events.herokuapp.com/projects?q=0").then(
       (value) => {
-        setIsUpdated({ value: true, data: value });
+        dispatch(setProject({payload: value.data}));
+        setIsUpdated({ value: true, data: value.data });
       }
     );
-  }, []);
+  }
   const style = isUpdated.value ? null : {"height": "10vh", "overflow": "hidden"}
   return (
     <div style={style}>
     {!isUpdated.value && <SpinnerBox><Spinner /></SpinnerBox>}
     <Fade bottom>
-    <Title style={{"color": "var(--dark-mode-text)", "fontSize": "2rem", "margin": "1rem", "textAlign" : "center"}} >Our Projects</Title>
+    <Title style={{"color": "var(--text)", "fontSize": "2rem", "margin": "1rem", "textAlign" : "center"}} >Our Projects</Title>
     </Fade>
       {isUpdated.value &&
-        isUpdated.data.data.map((i, ind) => {
+        isUpdated.data.map((i, ind) => {
           return (
-            <Fade bottom>
+            <Fade bottom distance="10%" >
             <ProjectItem
-              key={ind}
+              key={i._id}
               imgSrc={i.mockup}
               title={i.title}
               about={i.description}

@@ -19,7 +19,7 @@ export const Box = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 65%;
+    width: 64%;
     min-height: 30rem;
     border-radius: 15px;
     background-color: var(--background);
@@ -37,8 +37,11 @@ export const Box = styled.div`
 export const ImageDiv = styled.div`
     background-color: #5017EB59;
     border-radius: 15px;
-    margin: 1rem;
+    margin: 1.5rem 1rem;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @media screen and (max-width: 1376px){
         width: 30rem;
     }
@@ -107,6 +110,9 @@ export const Input1 = styled.input`
     &::placeholder {
         color: var(--text);
     }
+    &:focus {
+        outline: none;
+    }
 `
 export const Input2 = styled.input`
     grid-row: 2;
@@ -120,12 +126,16 @@ export const Input2 = styled.input`
         color: var(--text);
     }
     
+    &:focus {
+        outline: none;
+    }
 `
 
-export const Forgot = styled(LinkRouter)`
+export const Forgot = styled.p`
     color: rgba(255,255,255,0.5);
     text-align: center;
     font-weight: 300;
+    cursor: pointer;
 `
 
 export const Button = styled.button`
@@ -137,12 +147,12 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   border: none;
   border-radius: 5px;
 
   :hover {
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 0.4);
   }
 `;
 
@@ -162,4 +172,18 @@ export const Join  = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+`
+
+export const Banner1 = styled.div`
+    position: absolute;
+    top: 2rem;
+    background-color: var(--blue);
+    color: var(--text);
+    font-size: 1.2rem;
+    min-width: 10rem;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 `

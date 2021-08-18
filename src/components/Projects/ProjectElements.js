@@ -83,14 +83,14 @@ export const About = styled.p`
 // Project styles
 
 export const ProjectWrapper = styled.div`
-  height: 40rem;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(10, 1fr);
   color: var(--text);
   gap: 3rem;
   width: 80%;
-  margin: 5rem auto 10rem;
+  margin: 0rem auto 5rem;
   @media screen and (max-width: 1024px) {
     height: auto;
     display: flex;
@@ -105,16 +105,18 @@ export const ProjectWrapper = styled.div`
 
 export const ProjectImage = styled.div`
   grid-row: 1 / 9;
-  grid-column: 1 / 3;
+  grid-column: 1;
+  width: 20rem;
   @media screen and (max-width: 1024px) {
     height: 25rem;
+    width: auto;
   }
 `;
 
 export const ProjectTitle = styled.h1`
   font-size: 3rem;
   grid-row: 3;
-  grid-column: 3 / 11;
+  grid-column: 2 / 11;
   text-align: left;
   @media screen and (max-width: 1024px) {
     text-align: center;
@@ -126,7 +128,7 @@ export const ProjectLinks = styled.div`
   display: flex;
   align-items: center;
   grid-row: 4;
-  grid-column: 3 / 7;
+  grid-column: 2 / 7;
   justify-content: left;
 `;
 
@@ -140,7 +142,7 @@ export const ProjectAbout = styled.div`
   align-items: center;
   font-size: 1.3rem;
   grid-row: 5;
-  grid-column: 3 / 6;
+  grid-column: 2 / 6;
   text-align: left;
   @media screen and (max-width: 1024px) {
     text-align: center;
@@ -156,8 +158,8 @@ export const ProjectButton = styled.button`
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  grid-row: 7;
-  grid-column: 3 / 5;
+  grid-row: 6;
+  grid-column: 2 / 5;
   height: 3rem;
   @media screen and (max-width: 1024px) {
     width: 10rem;
@@ -173,9 +175,11 @@ export const ProjectButton = styled.button`
 
 export const ProjectImageR = styled.div`
   grid-row: 1 / 9;
-  grid-column: 5 / 9;
+  grid-column: 5;
+  width: 20rem;
   @media screen and (max-width: 1024px) {
     height: 25rem;
+    width: auto;
   }
 `;
 
@@ -224,7 +228,7 @@ export const ProjectButtonR = styled.button`
   border-radius: 10px;
   cursor: pointer;
   height: 3rem;
-  grid-row: 7;
+  grid-row: 6;
   grid-column: 3 / 5;
   @media screen and (max-width: 1024px) {
     width: 10rem;

@@ -5,7 +5,7 @@ import Fade from "react-reveal/Fade"
 
 export default function Partners() {
   return (
-    <Fade bottom>
+    <Fade bottom distance="25%">
       <div style={{ margin: "5rem 0" }}>
       <HeadingContainer>
         <Heading>Our Partners</Heading>

@@ -106,7 +106,7 @@ const Navbar = ({ toggle }) => {
             <img src={userIcon} alt="User Icon"></img>
           </NavUser>
           <NavDropdown ref={ref} dropdownOpen={dropdownOpen}>
-              <NavDropLink onClick={toggleDropdown} to="/">Create an Account</NavDropLink>
+              <NavDropLink onClick={toggleDropdown} to="/register">Create an Account</NavDropLink>
               <NavDropLink onClick={handleOpen}>Login</NavDropLink>
           </NavDropdown>
         </NavbarContainer>

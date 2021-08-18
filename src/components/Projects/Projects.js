@@ -4,6 +4,8 @@ import Card from "./Card";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setProject } from "../../store/Project";
 
 const responsive = {
   superLargeDesktop: {
@@ -30,18 +32,22 @@ const responsive = {
 
 export default function Projects(props) {
   const [isUpdated, setIsUpdated] = React.useState({ value: false, data: {} });
+  const data = useSelector((state) => state.project.project);
+  const dispatch = useDispatch();
 
-  const handleUpdate = (value) => {
-    setIsUpdated({ value: true, data: value });
-  }
-
-  React.useEffect(() => {
+  if(data !== null && !isUpdated.value){
+    setIsUpdated({ value: true, data: data });
+  } else if(!isUpdated.value) {
     Axios.get("https://backend-events.herokuapp.com/projects?q=0").then(
       (value) => {
         handleUpdate(value);
+        dispatch(setProject({payload: value.data}));
       }
     );
-  }, []);
+  }
+  const handleUpdate = (value) => {
+    setIsUpdated({ value: true, data: value.data });
+  };
   return (
       <React.Fragment>
       <HeadingContainer>
@@ -50,7 +56,7 @@ export default function Projects(props) {
       </HeadingContainer>
       {isUpdated.value && (
         <Carousel responsive={responsive}>
-          {isUpdated.data.data.map((i, ind) => {
+          {isUpdated.data.map((i, ind) => {
             return (
               <Card
                 key={ind}
