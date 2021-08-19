@@ -67,3 +67,10 @@ export const Partner = styled.div`
     width: 100%;
   }
 `;
+
+export const Title = styled.h1`
+  color: var(--text);
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+`;
