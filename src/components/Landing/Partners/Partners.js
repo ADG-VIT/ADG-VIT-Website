@@ -29,6 +29,9 @@ export default function Partners() {
 
 
 export const PartnerFull = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <React.Fragment>
         <Title>Our Partners</Title>

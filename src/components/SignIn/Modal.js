@@ -50,7 +50,7 @@ const Modal = (props) => {
           dispatch(setToken({ payload: data.data.Token }));
           setTimeout(() => {
             window.location.href = "/";
-          }, 2000);
+          }, 1000);
         }
       })
       .catch((err) => {

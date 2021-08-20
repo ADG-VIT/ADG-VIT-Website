@@ -102,7 +102,7 @@ export const Form = styled.div`
 export const Input1 = styled.input`
     grid-row: 1;
     grid-column: 1;
-    background-color: rgba(255,255,255,0.1);
+    background-color: var(--form-bg);
     color: var(--text);
     border: none;
     padding-left: 1rem;
@@ -117,7 +117,7 @@ export const Input1 = styled.input`
 export const Input2 = styled.input`
     grid-row: 2;
     grid-column: 1;
-    background-color: rgba(255,255,255,0.1);
+    background-color: var(--form-bg);
     color: var(--text);
     border: none;
     padding-left: 1rem;
@@ -132,7 +132,7 @@ export const Input2 = styled.input`
 `
 
 export const Forgot = styled.p`
-    color: rgba(255,255,255,0.5);
+    color: var(--text);
     text-align: center;
     font-weight: 300;
     cursor: pointer;

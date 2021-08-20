@@ -8,6 +8,7 @@ export const counterSlice = createSlice({
   reducers: {
     setToken: (state, action) => {
       state.leAuthorisationToken = action.payload.payload;
+      localStorage.setItem("leAuthorisationToken", action.payload.payload);
     },
   },
 })
