@@ -9,6 +9,9 @@
   --light-mode-bg: rgba(239, 240, 246, 1);
   --dark-mode-text: rgba(255, 255, 255, 1);
   --light-mode-text: rgba(0, 0, 0, 1);
+  --form-background-dark: rgba(255,255,255,0.1);
+  --form-background-light: rgba(255,255,255,1);
+
 
   --navbar-bg: var(--navbar-dark);
   --navbar-text: var(--navbar-dark-text);
@@ -16,6 +19,7 @@
   --background: var(--dark-mode-bg);
   --text: var(--dark-mode-text);
   --blue: rgba(95, 46, 234, 1);
+  --form-bg: var(--form-background-dark);
 }
 
 body {

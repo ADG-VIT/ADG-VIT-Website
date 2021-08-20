@@ -23,6 +23,9 @@ const ProjectList = () => {
     );
   }
   const style = isUpdated.value ? null : {"height": "10vh", "overflow": "hidden"}
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div style={style}>
     {!isUpdated.value && <SpinnerBox><Spinner /></SpinnerBox>}

@@ -65,6 +65,10 @@ const Footer = () => {
           "--text",
           "var(--dark-mode-text)"
         );
+        document.documentElement.style.setProperty(
+          "--form-bg",
+          "var(--form-background-dark)"
+        );
       } else {
         document.documentElement.style.setProperty(
           "--navbar-bg",
@@ -85,6 +89,10 @@ const Footer = () => {
         document.documentElement.style.setProperty(
           "--text",
           "var(--light-mode-text)"
+        );
+        document.documentElement.style.setProperty(
+          "--form-bg",
+          "var(--form-background-light)"
         );
       }
     };

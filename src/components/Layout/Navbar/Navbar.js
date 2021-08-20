@@ -18,11 +18,20 @@ import {useClickAway} from 'react-use';
 import userIcon from './assets/user-icon.svg';
 import ADGLogo from './assets/adg-logo-dark.png';
 import SignInModal from "../../SignIn/Signin"
+import { useSelector, useDispatch } from "react-redux";
+import { setToken } from "../../../store/Auth";
 
 const Navbar = ({ toggle }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isHeroSection, setIsHeroSection] = useState(true);
-
+  const [isOpen, setIsOpen] = React.useState(false);
+  var token = useSelector(state => state.counter.leAuthorisationToken);
+  const dispatch = useDispatch();
+  if(token === null){
+    if(localStorage.getItem("leAuthorisationToken") !== null){
+      dispatch(setToken({payload: localStorage.getItem("leAuthorisationToken")}));
+    }
+  }
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -48,7 +57,6 @@ const Navbar = ({ toggle }) => {
     closeDropdown();
   });
 
-  const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = () => {
     setIsOpen(true);
   }
@@ -56,6 +64,10 @@ const Navbar = ({ toggle }) => {
     if(e.target.id === "wrapper"){
       setIsOpen(false);
     }
+  }
+  const handleOut = () => {
+    localStorage.clear();
+    window.location.href = "/";
   }
   return (
     <>
@@ -107,7 +119,9 @@ const Navbar = ({ toggle }) => {
           </NavUser>
           <NavDropdown ref={ref} dropdownOpen={dropdownOpen}>
               <NavDropLink onClick={toggleDropdown} to="/register">Create an Account</NavDropLink>
-              <NavDropLink onClick={handleOpen}>Login</NavDropLink>
+              <NavDropLink onClick={token !== null ? handleOut : handleOpen}>
+                {token !== null ? "Logout" : "Login"}
+              </NavDropLink>
           </NavDropdown>
         </NavbarContainer>
       </Nav>

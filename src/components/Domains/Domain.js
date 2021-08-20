@@ -10,6 +10,9 @@ import {
 import Fade from "react-reveal/Fade"
 
 const Domain = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <React.Fragment>
     <Fade bottom>

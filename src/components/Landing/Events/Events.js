@@ -15,7 +15,7 @@ import {
   SecEventDescription,
   SecEventHeading,
   SecEventImage,
-  SecTextWrap,
+  SecTextWrap
 } from "./EventsElements";
 import Fade from "react-reveal/Fade";
 import Axios from "axios";
@@ -65,7 +65,7 @@ export default function Events(props) {
   return (
     <div style={{ margin: "3rem 0" }}>
       <EventsContainer>
-        <Fade bottom>
+        <Fade bottom distance="25%" duration={500}>
           <HeadingContainer>
             <Heading>Our Events</Heading>
             <SeeAll to="/events/">See All</SeeAll>
@@ -75,8 +75,9 @@ export default function Events(props) {
           <CardsWrap>
             {isUpdated.data.map((i, ind) => {
               if (ind === 0) {
-                return (
-                  <MainEventCard key={ind}>
+                if(window.innerWidth > 400){
+                  return (
+                    <MainEventCard key={i._id}>
                     <Fade bottom distance="25%" duration={500} delay={0} fraction={0.1}>
                     <MainEventImage>
                       <img src={i.posterURL} alt="Event" />
@@ -89,10 +90,26 @@ export default function Events(props) {
                     </Fade>
                   </MainEventCard>
                 );
+                } else {
+                  return (
+                    <Fade bottom distance="25%" duration={500} delay={0} fraction={0.1}>
+                    <MainEventCard key={i._id}>
+                    <MainEventImage>
+                      <img src={i.posterURL} alt="Event" />
+                    </MainEventImage>
+                    <MainTextWrap>
+                      <MainEventHeading>{i.name}</MainEventHeading>
+                      <MainEventDescription>{i.info}</MainEventDescription>
+                      <MainEventDate>{convertTime(i.date)}</MainEventDate>
+                    </MainTextWrap>
+                  </MainEventCard>
+                    </Fade>
+                );
+                }
               } else {
                 return (
-                  <SecEventCard key={ind}>
-                    <Fade bottom distance="25%" duration={500} delay={ind*150}>
+                    <Fade bottom distance="25%" duration={500} delay={ind*150} fraction={0.1}>
+                  <SecEventCard key={i._id}>
                     <SecEventImage>
                       <img src={i.posterURL} alt="Event" />
                     </SecEventImage>
@@ -101,8 +118,8 @@ export default function Events(props) {
                       <SecEventDescription>{i.info}</SecEventDescription>
                       <SecEventDate>{convertTime(i.date)}</SecEventDate>
                     </SecTextWrap>
-                    </Fade>
                   </SecEventCard>
+                    </Fade>
                 );
               }
             })}

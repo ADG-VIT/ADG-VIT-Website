@@ -2,6 +2,9 @@ import React from "react";
 import "./css/EventsPage.css";
 
 export default function Event(props) {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="tp-item row" style={{ justifyContent: "center" }}>
       <div className="col-md-5 tp-item-image">
