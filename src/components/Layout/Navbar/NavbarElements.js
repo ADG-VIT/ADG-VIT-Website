@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Link as LinkRouter } from "react-router-dom";
 
 export const Nav = styled.nav`
-  background-color: ${({ isHeroSection }) => (isHeroSection ? 'black' : 'transparent')};
-  backdrop-filter: blur(15px);
+  background-color: ${({ isHeroSection }) =>
+    isHeroSection ? "black" : "transparent"};
   width: 100%;
   height: 80px;
   display: flex;
@@ -20,7 +20,9 @@ export const Nav = styled.nav`
 `;
 
 export const NavbarContainer = styled.div`
-  background-color: ${({ isHeroSection }) => (isHeroSection ? 'var(--navbar-dark)' : 'var(--navbar-bg)')};
+  backdrop-filter: blur(15px);
+  background-color: ${({ isHeroSection }) =>
+    isHeroSection ? "var(--navbar-dark)" : "var(--navbar-bg)"};
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -46,7 +48,8 @@ export const MobileIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 850px) {
-    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
+    color: ${({ isHeroSection }) =>
+      isHeroSection ? "var(--dark-mode-text)" : "var(--text)"};
     display: flex;
     align-items: center;
     font-size: 1.5rem;
@@ -68,37 +71,31 @@ export const NavMenu = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  text-decoration: none;
-
-  .link-active {
+  a {
+    text-decoration: none;
+    color: ${({ isHeroSection }) =>
+      isHeroSection ? "var(--navbar-dark-text)" : "var(--navbar-text)"};
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 400;
+    letter-spacing: 7%;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
     transition: all 0.1s ease-in-out;
-    border-bottom: 2px solid var(--blue);
-    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
-  }
-`;
-
-export const NavLinks = styled(LinkRouter)`
-  color: ${({ isHeroSection }) => (isHeroSection ? 'var(--navbar-dark-text)' : 'var(--navbar-text)')};
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  margin: 0 1rem;
-  font-weight: 400;
-  letter-spacing: 7%;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all 0.1s ease-in-out;
-
-  &:hover {
-    transition: all 0.1s ease-in-out;
-    border-bottom: 2px solid var(--blue);
   }
 
-  &.active,
-  &:active {
+  a.link-active {
     transition: all 0.1s ease-in-out;
     border-bottom: 2px solid var(--blue);
-    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
+    color: ${({ isHeroSection }) =>
+      isHeroSection ? "var(--dark-mode-text)" : "var(--text)"};
+  }
+
+  a:hover {
+    transition: all 0.1s ease-in-out;
+    border-bottom: 2px solid var(--blue);
   }
 `;
 
@@ -128,7 +125,8 @@ export const NavBtnLink = styled.button`
   border-radius: 5px;
   white-space: nowrap;
   padding: 5px 15px;
-  color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
+  color: ${({ isHeroSection }) =>
+    isHeroSection ? "var(--dark-mode-text)" : "var(--text)"};
   font-size: 1rem;
   border: 2px solid var(--blue);
   transition: all 0.2s ease-in-out;
@@ -161,31 +159,34 @@ export const NavDropdown = styled.div`
   position: absolute;
   top: 70px;
   right: 20px;
-  background-color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dropdown-dark)' : 'var(--dropdown-bg)')};
+  backdrop-filter: blur(15px);
+  background-color: ${({ isHeroSection }) =>
+    isHeroSection ? "var(--dropdown-dark)" : "var(--dropdown-bg)"};
   display: ${({ dropdownOpen }) => (dropdownOpen ? "flex" : "none")};
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   z-index: 12;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   border-radius: 10px;
   overflow: hidden;
-  backdrop-filter: blur(15px);
 
   @media screen and (max-width: 850px) {
     display: none;
   }
 `;
 
-export const NavDropLink = styled.p`
+export const NavDropLink = styled(LinkRouter)`
   padding: 10px 20px;
-  width: 100%;
-  color: ${({ isHeroSection }) => (isHeroSection ? 'var(--navbar-dark-text)' : 'var(--navbar-text)')};
+  width: 170px;
+  color: ${({ isHeroSection }) =>
+    isHeroSection ? "var(--navbar-dark-text)" : "var(--navbar-text)"};
   border-left: 3px solid transparent;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   &:hover {
-    color: ${({ isHeroSection }) => (isHeroSection ? 'var(--dark-mode-text)' : 'var(--text)')};
+    color: ${({ isHeroSection }) =>
+      isHeroSection ? "var(--dark-mode-text)" : "var(--text)"};
     background-color: rgba(95, 46, 234, 0.4);
     border-left: 3px solid var(--blue);
   }

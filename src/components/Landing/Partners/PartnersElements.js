@@ -40,27 +40,39 @@ export const PartnersWrap = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 0 4rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
   @media screen and (max-width: 450px) {
     padding: 0 2rem;
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
 export const Partner = styled.div`
   width: 10rem;
-  margin: 0 2rem;
+  margin: 0 0.5rem;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1100px) {
     width: 8rem;
-    margin: 0 1.5rem;
+  }
+  
+  @media screen and (max-width: 800px) {
+    margin: 0 0.4rem;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 650px) {
     width: 5rem;
     margin: 0 0.25rem;
+  }
+
+  @media screen and (max-width: 340px) {
+    width: 4rem;
+    margin: 0;
   }
 
   img {
