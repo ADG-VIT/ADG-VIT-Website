@@ -33,6 +33,7 @@ export const AdgLogoWrap = styled.div`
   margin-bottom: 1rem;
 
   img {
+    transition: all 0.2s ease-in-out;
     width: 100%;
   }
 `;

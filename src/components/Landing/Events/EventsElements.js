@@ -67,6 +67,10 @@ export const MainEventCard = styled.div`
     gap: 1rem;
   }
 
+  @media screen and (max-width: 800px) {
+    grid-row: 1 / span 1;
+  }
+
   @media screen and (max-width: 400px) {
     justify-self: right;
     align-items: center;

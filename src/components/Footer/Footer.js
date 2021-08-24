@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 
-import AdgLogo from "./assets/adglogo.png";
+import AdgLogoDarkM from "./assets/adgLogoDarkM.png";
+import AdgLogoLightM from "./assets/adgLogoLightM.png";
 import {
   AdgLogoWrap,
   BottomText,
@@ -33,7 +34,7 @@ import {
 } from "react-icons/fa";
 
 import { MdKeyboardArrowUp } from "react-icons/md";
-import Fade from "react-reveal/Fade"
+import Fade from "react-reveal/Fade";
 
 const Footer = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -45,6 +46,10 @@ const Footer = () => {
   useEffect(() => {
     const switchTheme = async () => {
       if (darkMode) {
+        document.documentElement.style.setProperty(
+          "--mode",
+          "dark"
+        );
         document.documentElement.style.setProperty(
           "--navbar-bg",
           "var(--navbar-dark)"
@@ -70,6 +75,10 @@ const Footer = () => {
           "var(--form-background-dark)"
         );
       } else {
+        document.documentElement.style.setProperty(
+          "--mode",
+          "light"
+        );
         document.documentElement.style.setProperty(
           "--navbar-bg",
           "var(--navbar-light)"
@@ -104,7 +113,7 @@ const Footer = () => {
       <FooterContainer>
         <FooterDescriptionWrap>
           <AdgLogoWrap>
-            <img src={AdgLogo} alt="ADG Logo" />
+            <img src={darkMode ? AdgLogoDarkM : AdgLogoLightM} alt="ADG Logo" />
           </AdgLogoWrap>
           <Description>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
