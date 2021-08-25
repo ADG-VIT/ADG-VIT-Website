@@ -8,6 +8,7 @@ import Domain from "./components/Domains/Domain";
 import { FullTeams } from "./components/Teams/Teams";
 import {PartnerFull} from "./components/Landing/Partners/Partners"
 import EventsList from "./components/Events/index"
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/domains/" component={Domain} />
           <Route exact path="/team/" component={FullTeams} />
           <Route exact path="/partners/" component={PartnerFull} />
+          <Route exact path="/register/" component={SignUp} />
         </Switch>
         <Footer />
       </Router>
