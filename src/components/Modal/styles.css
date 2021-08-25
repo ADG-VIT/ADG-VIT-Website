@@ -1,0 +1,55 @@
+.Modal {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: transparent;
+    color: white;
+  }
+  .ReactModal__Body--open {
+    overflow-y: hidden;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(9, 9, 9, 0.975);
+  }
+  .container{
+      margin-top: 0;
+  }
+  .col-lg-6{
+      color: white;
+    text-align: center;
+  }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin-top: -6vh;
+    }
+
+  .content-part{
+      text-align: left;
+  }
+  .register-button{
+    background-color: #5F2EEA;
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    padding: 15px 100px;
+    margin: 15px 0 ;
+    border-radius: 15px;
+    border-style: none;  
+  }
+  @media (max-width: 1000px) {
+    .content-part{
+      text-align: center;
+    }
+    
+  }
