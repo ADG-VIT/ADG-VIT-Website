@@ -6,8 +6,8 @@ import Footer from "./components/Footer/Footer";
 import ProjectList from "./components/Projects/ProjectList";
 import Domain from "./components/Domains/Domain";
 import { FullTeams } from "./components/Teams/Teams";
-import {PartnerFull} from "./components/Landing/Partners/Partners"
-import EventsList from "./components/Events/index"
+import { PartnerFull } from "./components/Landing/Partners/Partners";
+import Events from "./components/Events";
 import SignUp from "./components/SignUp/SignUp";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Layout />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/events/" component={EventsList} />
+          <Route exact path="/events/" component={Events} />
           <Route exact path="/projects/" component={ProjectList} />
           <Route exact path="/domains/" component={Domain} />
           <Route exact path="/team/" component={FullTeams} />
