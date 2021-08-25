@@ -59,3 +59,7 @@ body {
 #adg-logo-color {
   fill: var(--text);
 }
+
+a {
+  text-decoration: none!important;
+}

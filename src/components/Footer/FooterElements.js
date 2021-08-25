@@ -73,6 +73,10 @@ export const LinksWrap = styled.div`
 export const FooterLink = styled(LinkRouter)`
   color: var(--text);
   margin: 0.4rem 0;
+
+  :hover {
+    color: var(--text);
+  }
 `;
 
 export const FollowUsWrap = styled.div`
@@ -100,6 +104,10 @@ export const HandleLinksWrap = styled.div`
 export const HandleLink = styled.a`
   color: var(--text);
   font-size: 2rem;
+
+  :hover {
+    color: var(--text);
+  }
 `;
 
 export const CopyrightWrap = styled.div`
@@ -132,7 +140,7 @@ export const TopButton = styled(LinkScroll)`
   bottom: 1rem;
   right: 1rem;
   background-color: var(--blue);
-  color: white;
+  color: white!important;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;

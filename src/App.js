@@ -7,7 +7,7 @@ import ProjectList from "./components/Projects/ProjectList";
 import Domain from "./components/Domains/Domain";
 import { FullTeams } from "./components/Teams/Teams";
 import { PartnerFull } from "./components/Landing/Partners/Partners";
-import Events from "./components/Events";
+import Events from "./components/sampleEvents";
 import SignUp from "./components/SignUp/SignUp";
 
 function App() {
