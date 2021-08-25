@@ -39,7 +39,7 @@ export const NavLogo = styled(LinkRouter)`
   font-weight: bold;
   text-decoration: none;
 
-  img {
+  svg {
     height: 40px;
   }
 `;

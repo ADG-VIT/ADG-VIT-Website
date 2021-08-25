@@ -22,6 +22,9 @@ export const FooterContainer = styled.div`
 
 export const FooterDescriptionWrap = styled.div`
   padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width: 800px) {
     grid-column: 1 / -1;
@@ -29,8 +32,8 @@ export const FooterDescriptionWrap = styled.div`
 `;
 
 export const AdgLogoWrap = styled.div`
-  width: 50%;
-  margin-bottom: 1rem;
+  width: 8rem;
+  margin: 0 auto;
 
   img {
     transition: all 0.2s ease-in-out;
@@ -38,10 +41,10 @@ export const AdgLogoWrap = styled.div`
   }
 `;
 
-export const Description = styled.p`
-  font-size: 1rem;
-  letter-spacing: 1%;
-`;
+// export const Description = styled.p`
+//   font-size: 1rem;
+//   letter-spacing: 1%;
+// `;
 
 export const QuickLinksWrap = styled.div`
   display: flex;
@@ -86,8 +89,8 @@ export const FollowUsHeader = styled.h1`
 
 export const HandleLinksWrap = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 50%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 70%;
 
   @media screen and (max-width: 900px) {
     width: 70%;

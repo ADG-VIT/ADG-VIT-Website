@@ -52,6 +52,10 @@ export const LoginText = styled.p`
     cursor: pointer;
     font-weight: 600;
   }
+
+  span:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Form = styled.form`
@@ -101,6 +105,9 @@ export const Input = styled.input`
   }
 `;
 
+export const SelectWrap = styled.div`
+`;
+
 export const InputSelection = styled.select`
   border: none;
   background-color: var(--form-bg);
@@ -118,6 +125,7 @@ export const InputSelection = styled.select`
 `;
 
 export const InputOption = styled.option`
+  background-color: var(--form-bg);
   color: var(--text);
 `;
 
@@ -134,14 +142,15 @@ export const SubmitButton = styled.button`
   padding: 5px 15px;
   font-size: 0.9rem;
   color: white;
-  border: 2px solid var(--blue);
+  border: none;
   background-color: var(--blue);
   font-weight: 600;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: transparent;
+    color: rgba(255, 255, 255, 1);
   }
 `;

@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-
-import AdgLogoDarkM from "./assets/AdgLogoDarkM.png";
-import AdgLogoLightM from "./assets/AdgLogoLightM.png";
-
+import { React, useState } from "react";
+import { ReactComponent as ADGLogo } from "./assets/AdgLogo.svg";
 import {
   AdgLogoWrap,
   Input,
@@ -14,28 +11,31 @@ import {
   Form,
   InputOption,
   SubmitButton,
+  SelectWrap,
 } from "./SignUpElements";
 
 const SignUp = () => {
+  const [selectOption, setSelectOption] = useState(false);
 
-  const [darkMode, setDarkMode] = useState(true);
-
-  useEffect(() => {
-    if(document.documentElement.style.getPropertyValue('--mode') === "dark") {
-      setDarkMode(true);
+  const selectHandle = () => {
+    const element = document.getElementById("selected-option");
+    if (element.value === "Yes") {
+      setSelectOption(true);
     } else {
-      setDarkMode(false);
+      setSelectOption(false);
     }
-  },[darkMode]);
+  };
 
   return (
     <>
       <SignUpContainer>
         <AdgLogoWrap>
-          <img src={darkMode ? AdgLogoDarkM : AdgLogoLightM} alt="ADG Logo" />
+          <ADGLogo />
         </AdgLogoWrap>
         <SignUpHeader>Create an Account</SignUpHeader>
-        <LoginText>Already Have an Account? <span>Login</span></LoginText>
+        <LoginText>
+          Already Have an Account? <span>Login</span>
+        </LoginText>
         <Form>
           <div>
             <Label>Full Name</Label>
@@ -62,15 +62,36 @@ const SignUp = () => {
             />
           </div>
           <div>
-            <Label>Are you From VIT Vellore?</Label>
-            <InputSelection type="select" placeholder="Yes/No" required>
-              <InputOption>Yes</InputOption>
-              <InputOption>No</InputOption>
-            </InputSelection>
+            <Label>Are you from VIT Vellore?</Label>
+            <SelectWrap>
+              <InputSelection
+                id="selected-option"
+                onClick={selectHandle}
+                required
+              >
+                <InputOption value="" disabled selected hidden>
+                  Yes/No
+                </InputOption>
+                <InputOption value="Yes">Yes</InputOption>
+                <InputOption value="No">No</InputOption>
+              </InputSelection>
+            </SelectWrap>
           </div>
           <div>
             <Label>Registration Number/Uni</Label>
-            <Input type="text" placeholder="Confirm your Password" required />
+            {selectOption ? (
+              <Input
+                type="text"
+                placeholder="Enter your Registration Number"
+                required
+              />
+            ) : (
+              <Input
+                type="text"
+                placeholder="Enter your Registration Number"
+                disabled
+              />
+            )}
           </div>
           <SubmitButton type="submit">Sign Up</SubmitButton>
         </Form>
