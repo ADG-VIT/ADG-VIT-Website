@@ -2,6 +2,28 @@ import React from "react";
 import "./css/EventsPage.css";
 import Modal from "../Modal";
 
+const convertTime = (time) => {
+  var a = new Date(time * 1000);
+  var months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  return date + " " + month + " " + year;
+};
+
 export default function Event(props) {
   if (props.width > 768)
     return (
@@ -15,7 +37,7 @@ export default function Event(props) {
         <div className="col-sm-5 tp-item-info">
           <div className="tp-item-title">{props.title}</div>
           <div className="tp-item-date tp-item-desc">
-            <span>{props.date}</span> <br />
+            <span>{convertTime(props.date)}</span> <br />
           </div>
           <div className="tp-item-desc">
             <p>{props.desc}</p>
@@ -34,7 +56,7 @@ export default function Event(props) {
         <div className=" tp-item-info">
           <div className="tp-item-title">{props.title}</div>
           <div className="tp-item-date tp-item-desc">
-            {props.date} <br />
+            {convertTime(props.date)} <br />
           </div>
           <div className="tp-item-desc">
             <p>{props.desc}</p>

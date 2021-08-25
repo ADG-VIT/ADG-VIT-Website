@@ -3,6 +3,27 @@ import ReactModal from "react-modal";
 import "./styles.css";
 import axios from "axios";
 
+const convertTime = (time) => {
+  var a = new Date(time * 1000);
+  var months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  return date + " " + month + " " + year;
+};
 export default class Modal extends React.Component {
   constructor() {
     super();
@@ -47,7 +68,7 @@ export default class Modal extends React.Component {
               </div>
               <div className="col-lg-6 content-part ">
                 <h1>{t.name}</h1>
-                <h2>{t.date}</h2>
+                <h2>{convertTime(t.date)}</h2>
                 <p>{t.info}</p>
                 <button className="register-button">Register Now</button>
               </div>
