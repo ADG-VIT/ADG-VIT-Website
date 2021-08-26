@@ -39,6 +39,10 @@ export const NavLogo = styled(LinkRouter)`
   font-weight: bold;
   text-decoration: none;
 
+  #adg-logo-color {
+    fill: ${({isHeroSection}) => isHeroSection ? 'white' : 'var(--text)'};
+  }
+
   svg {
     height: 40px;
   }
@@ -119,23 +123,21 @@ export const NavBtn = styled.nav`
   }
 `;
 export const NavBtnLink = styled.button`
-  background-color: transparent;
+  background-color: var(--blue);
   outline: none;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   white-space: nowrap;
   padding: 5px 15px;
-  color: ${({ isHeroSection }) =>
-    isHeroSection ? "var(--dark-mode-text)" : "var(--text)"};
-  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
   border: 2px solid var(--blue);
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: var(--blue);
+    color: rgba(255, 255, 255, 1);
   }
 `;
 
