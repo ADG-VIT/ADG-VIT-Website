@@ -1,12 +1,10 @@
 import { React, useState, useEffect } from "react";
 
-import AdgLogoDarkM from "./assets/adgLogoDarkM.png";
-import AdgLogoLightM from "./assets/adgLogoLightM.png";
 import {
   AdgLogoWrap,
   BottomText,
   CopyrightWrap,
-  Description,
+  // Description,
   FollowUsHeader,
   FollowUsWrap,
   FooterContainer,
@@ -31,8 +29,10 @@ import {
   FaTwitter,
   FaSun,
   FaMoon,
+  FaYoutube,
+  FaEnvelope,
 } from "react-icons/fa";
-
+import {ReactComponent as ADGLogo} from "./assets/AdgLogo.svg";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import Fade from "react-reveal/Fade";
 
@@ -46,10 +46,7 @@ const Footer = () => {
   useEffect(() => {
     const switchTheme = async () => {
       if (darkMode) {
-        document.documentElement.style.setProperty(
-          "--mode",
-          "dark"
-        );
+        document.documentElement.style.setProperty("--mode", "dark");
         document.documentElement.style.setProperty(
           "--navbar-bg",
           "var(--navbar-dark)"
@@ -75,10 +72,7 @@ const Footer = () => {
           "var(--form-background-dark)"
         );
       } else {
-        document.documentElement.style.setProperty(
-          "--mode",
-          "light"
-        );
+        document.documentElement.style.setProperty("--mode", "light");
         document.documentElement.style.setProperty(
           "--navbar-bg",
           "var(--navbar-light)"
@@ -113,14 +107,14 @@ const Footer = () => {
       <FooterContainer>
         <FooterDescriptionWrap>
           <AdgLogoWrap>
-            <img src={darkMode ? AdgLogoDarkM : AdgLogoLightM} alt="ADG Logo" />
+            <ADGLogo />
           </AdgLogoWrap>
-          <Description>
+          {/* <Description>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
-          </Description>
+          </Description> */}
         </FooterDescriptionWrap>
         <QuickLinksWrap>
           <QuickLinksHeader>Quick Links</QuickLinksHeader>
@@ -130,23 +124,14 @@ const Footer = () => {
             <FooterLink to="/projects">Projects</FooterLink>
             <FooterLink to="/team">Team</FooterLink>
             <FooterLink to="/domains">Domains</FooterLink>
-            <FooterLink
-              to="/"
-              onClick={() => {
-                window.scroll({
-                  top: 0,
-                  left: 0,
-                  behavior: "smooth",
-                });
-              }}
-            >
-              About Us
-            </FooterLink>
           </LinksWrap>
         </QuickLinksWrap>
         <FollowUsWrap>
           <FollowUsHeader>Follow Us</FollowUsHeader>
           <HandleLinksWrap>
+            <HandleLink href="mailto:ios@vit.ac.in" target="_blank">
+              <FaEnvelope />
+            </HandleLink>
             <HandleLink href="https://www.facebook.com/vitios/" target="_blank">
               <FaFacebook />
             </HandleLink>
@@ -170,6 +155,12 @@ const Footer = () => {
             </HandleLink>
             <HandleLink href="https://github.com/ADG-VIT" target="_blank">
               <FaGithub />
+            </HandleLink>
+            <HandleLink
+              href="https://www.youtube.com/channel/UCM-gndho1tSjxzKeCd0MnRQ"
+              target="_blank"
+            >
+              <FaYoutube />
             </HandleLink>
           </HandleLinksWrap>
         </FollowUsWrap>

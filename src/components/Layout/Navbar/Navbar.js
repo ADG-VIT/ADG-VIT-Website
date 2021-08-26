@@ -15,7 +15,7 @@ import {
 import { FaBars } from "react-icons/fa";
 import { useClickAway } from "react-use";
 import userIcon from "./assets/user-icon.svg";
-import ADGLogo from "./assets/adg-logo-dark.png";
+import {ReactComponent as ADGLogo} from "./assets/AdgLogo.svg";
 import SignInModal from "../../SignIn/Signin";
 import { useSelector, useDispatch } from "react-redux";
 import { setToken } from "../../../store/Auth";
@@ -79,7 +79,7 @@ const Navbar = ({ toggle }) => {
       <Nav onClick={toggleIsHeroSection} isHeroSection={isHeroSection}>
         <NavbarContainer isHeroSection={isHeroSection}>
           <NavLogo to="/">
-            <img src={ADGLogo} alt="ADG Logo"></img>
+            <ADGLogo />
           </NavLogo>
           <NavBtn>
             <NavBtnLink isHeroSection={isHeroSection} onClick={handleOpen}>

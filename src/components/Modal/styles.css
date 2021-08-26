@@ -1,55 +1,137 @@
 .Modal {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-    background-color: transparent;
-    color: white;
-  }
-  .ReactModal__Body--open {
-    overflow-y: hidden;
-  }
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: transparent;
+  color: white;
+}
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
 
-  .Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(9, 9, 9, 0.975);
-  }
-  .container{
-      margin-top: 0;
-  }
-  .col-lg-6{
-      color: white;
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(9, 9, 9, 0.975);
+}
+.container {
+  margin-top: 0;
+}
+.col-lg-6 {
+  color: white;
+  text-align: center;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: -6vh;
+}
+
+.content-part {
+  text-align: left;
+}
+
+.register-button {
+  background-color: #5f2eea;
+  width: 280px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 15px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.register-button:hover {
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .content-part {
     text-align: center;
   }
-    .center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin-top: -6vh;
-    }
+}
 
-  .content-part{
-      text-align: left;
+.event-modal-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.event-modal-container .modal-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.event-modal-image {
+  width: 50%;
+}
+
+.modal-wrap h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.modal-wrap h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.modal-wrap p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .register-button {
+    width: 250px;
+    padding: 10px;
+    margin: 15px 0;
   }
-  .register-button{
-    background-color: #5F2EEA;
-    font-size: 16px;
-    line-height: 24px;
-    color: white;
-    padding: 15px 100px;
-    margin: 15px 0 ;
-    border-radius: 15px;
-    border-style: none;  
+
+  .event-modal-container .modal-wrap {
+    flex-direction: column;
+    text-align: center;
   }
-  @media (max-width: 1000px) {
-    .content-part{
-      text-align: center;
-    }
-    
+
+  .event-modal-image {
+    width: 80%;
   }
+}
+
+@media screen and (max-width: 450px) {
+  .modal-wrap h1 {
+    font-size: 1.5rem;
+  }
+
+  .modal-wrap h2 {
+    font-size: 1.1rem;
+  }
+
+  .modal-wrap p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .register-button {
+    width: 100%;
+  }
+}

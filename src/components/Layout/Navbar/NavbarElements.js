@@ -39,7 +39,7 @@ export const NavLogo = styled(LinkRouter)`
   font-weight: bold;
   text-decoration: none;
 
-  img {
+  svg {
     height: 40px;
   }
 `;
@@ -64,6 +64,7 @@ export const NavMenu = styled.ul`
   justify-content: center;
   list-style: none;
   text-align: center;
+  margin-bottom: 0;
 
   @media screen and (max-width: 850px) {
     display: none;
@@ -178,7 +179,7 @@ export const NavDropdown = styled.div`
 
 export const NavDropLink = styled(LinkRouter)`
   padding: 10px 20px;
-  width: 170px;
+  width: 210px;
   color: ${({ isHeroSection }) =>
     isHeroSection ? "var(--navbar-dark-text)" : "var(--navbar-text)"};
   border-left: 3px solid transparent;
