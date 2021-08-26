@@ -13,9 +13,19 @@ import {
   SubmitButton,
   SelectWrap,
 } from "./SignUpElements";
+import SignInModal from "../SignIn/Signin";
 
 const SignUp = () => {
   const [selectOption, setSelectOption] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+  const handleClose = (e) => {
+    if (e.target.id === "wrapper") {
+      setIsOpen(false);
+    }
+  };
 
   const selectHandle = () => {
     const element = document.getElementById("selected-option");
@@ -34,7 +44,7 @@ const SignUp = () => {
         </AdgLogoWrap>
         <SignUpHeader>Create an Account</SignUpHeader>
         <LoginText>
-          Already Have an Account? <span>Login</span>
+          Already Have an Account? <span onClick={() => handleOpen()} >Login</span>
         </LoginText>
         <Form>
           <div>
@@ -96,6 +106,7 @@ const SignUp = () => {
           <SubmitButton type="submit">Sign Up</SubmitButton>
         </Form>
       </SignUpContainer>
+      {isOpen && <SignInModal onClose={handleClose} />}
     </>
   );
 };
