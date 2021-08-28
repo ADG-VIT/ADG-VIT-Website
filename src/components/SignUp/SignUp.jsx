@@ -12,18 +12,42 @@ import {
   InputOption,
   SubmitButton,
   SelectWrap,
+  OptionWrap,
 } from "./SignUpElements";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const SignUp = () => {
   const [selectOption, setSelectOption] = useState(false);
+  const [optionOpen, setOptionOpen] = useState(false);
 
   const selectHandle = () => {
+    setOptionOpen(!optionOpen);
     const element = document.getElementById("selected-option");
     if (element.value === "Yes") {
       setSelectOption(true);
     } else {
       setSelectOption(false);
     }
+  };
+
+  const optionClose = (e) => {
+    setOptionOpen(false);
+  };
+
+  const yesClicked = () => {
+    const element = document.getElementById("selected-option");
+    element.innerHTML = "Yes";
+    element.value = "Yes";
+    element.style.color = "var(--text)";
+    selectHandle();
+  };
+
+  const noClicked = () => {
+    const element = document.getElementById("selected-option");
+    element.innerHTML = "No";
+    element.value = "No";
+    element.style.color = "var(--text)";
+    selectHandle();
   };
 
   return (
@@ -67,14 +91,23 @@ const SignUp = () => {
               <InputSelection
                 id="selected-option"
                 onClick={selectHandle}
+                value="No"
                 required
+              >Yes/No</InputSelection>
+              <IoMdArrowDropdown id="down-arrow" onClick={selectHandle} />
+              <OptionWrap
+                style={{
+                  display: optionOpen ? "flex" : "none",
+                }}
+                onMouseLeave={optionClose}
               >
-                <InputOption value="" disabled selected hidden>
-                  Yes/No
+                <InputOption onClick={yesClicked} id="option-yes">
+                  Yes
                 </InputOption>
-                <InputOption value="Yes">Yes</InputOption>
-                <InputOption value="No">No</InputOption>
-              </InputSelection>
+                <InputOption onClick={noClicked} id="option-no">
+                  No
+                </InputOption>
+              </OptionWrap>
             </SelectWrap>
           </div>
           <div>

@@ -92,13 +92,12 @@ export const Input = styled.input`
   border-radius: 10px;
   height: 2.5rem;
   width: 20rem;
-  /* padding-left: 1rem; */
+  padding-left: 1rem;
   color: var(--text);
 
   ::placeholder {
     color: #797979;
     letter-spacing: 10%;
-    padding-left: 1rem;
   }
 
   @media screen and (max-width: 400px) {
@@ -107,10 +106,19 @@ export const Input = styled.input`
 `;
 
 export const SelectWrap = styled.div`
+  position: relative;
+
+  #down-arrow {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+  }
 `;
 
-export const InputSelection = styled.select`
+export const InputSelection = styled.div`
   border: none;
+  box-sizing: border-box;
   background-color: var(--form-bg);
   border-radius: 10px;
   height: 2.5rem;
@@ -118,6 +126,10 @@ export const InputSelection = styled.select`
   padding-left: 1rem;
   color: var(--text);
   width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #797979;
 
   ::placeholder {
     color: #797979;
@@ -126,10 +138,31 @@ export const InputSelection = styled.select`
   }
 `;
 
-export const InputOption = styled.option`
-  background-color: var(--background);
+export const OptionWrap = styled.div`
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 100px;
+  border-radius: 10px;
+  height: 5rem;
+  background-color: var(--form-bg);
   color: var(--text);
-  height: 100px;
+  overflow: hidden;
+`;
+
+export const InputOption = styled.div`
+  height: 2.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  :hover {
+    transition: all 0.2s ease-in-out;
+    background-color: rgba(95, 46, 234, 0.4);
+  }
 `;
 
 export const SubmitButton = styled.button`
