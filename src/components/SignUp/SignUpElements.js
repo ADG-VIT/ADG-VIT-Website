@@ -75,7 +75,7 @@ export const Form = styled.form`
   }
 
   @media screen and (max-width: 400px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -92,12 +92,13 @@ export const Input = styled.input`
   border-radius: 10px;
   height: 2.5rem;
   width: 20rem;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   color: var(--text);
 
   ::placeholder {
     color: #797979;
     letter-spacing: 10%;
+    padding-left: 1rem;
   }
 
   @media screen and (max-width: 400px) {
@@ -120,13 +121,15 @@ export const InputSelection = styled.select`
 
   ::placeholder {
     color: #797979;
+    padding-left: 1rem;
     letter-spacing: 10%;
   }
 `;
 
 export const InputOption = styled.option`
-  background-color: var(--form-bg);
+  background-color: var(--background);
   color: var(--text);
+  height: 100px;
 `;
 
 export const SubmitButton = styled.button`

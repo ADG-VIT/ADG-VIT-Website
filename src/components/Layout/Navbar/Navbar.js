@@ -78,7 +78,7 @@ const Navbar = ({ toggle }) => {
     <>
       <Nav onClick={toggleIsHeroSection} isHeroSection={isHeroSection}>
         <NavbarContainer isHeroSection={isHeroSection}>
-          <NavLogo to="/">
+          <NavLogo to="/" isHeroSection={isHeroSection}>
             <ADGLogo />
           </NavLogo>
           <NavBtn>
