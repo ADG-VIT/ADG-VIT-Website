@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Event from "./Event";
 import "./style.css";
 import axios from "axios";
@@ -88,6 +88,9 @@ export default function EventsList(props){
       }
     );
   }
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [])
   if(isUpdated.value){
     if (window.innerWidth > 768) {
       return (

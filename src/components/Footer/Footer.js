@@ -37,12 +37,15 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 import Fade from "react-reveal/Fade";
 
 const Footer = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const findMode = () => {
+    return localStorage.getItem("dark") === "true"
+  }
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("dark") !== null ? findMode : true);
 
   const toggleTheme = () => {
+    localStorage.setItem("dark", !darkMode);
     setDarkMode(!darkMode);
   };
-
   useEffect(() => {
     const switchTheme = async () => {
       if (darkMode) {

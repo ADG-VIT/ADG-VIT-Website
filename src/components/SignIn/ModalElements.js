@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Link as LinkRouter } from "react-router-dom";
 
 export const Wrapper = styled.div`
     height: 100vh;
@@ -19,8 +18,8 @@ export const Box = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 64%;
-    min-height: 30rem;
+    width: 70%;
+    min-height: 40rem;
     border-radius: 15px;
     background-color: var(--background);
     @media screen and (max-width: 1376px){
@@ -37,8 +36,8 @@ export const Box = styled.div`
 export const ImageDiv = styled.div`
     background-color: #5017EB59;
     border-radius: 15px;
-    margin: 1.5rem 1rem;
-    width: 50%;
+    margin: 1rem 0rem;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,9 +149,10 @@ export const Button = styled.button`
   color: rgba(255, 255, 255, 1);
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 
   :hover {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 1);
   }
 `;
 
@@ -161,11 +161,12 @@ export const Join1 = styled.p`
     font-weight: 400;
     color: var(--text);
 `
-export const Join2 = styled(LinkRouter)`
+export const Join2 = styled.p`
     text-align: center;
     font-weight: 600;
     color: var(--blue);
     margin-left: 0.2rem;
+    cursor: pointer;
 `
 
 export const Join  = styled.div`

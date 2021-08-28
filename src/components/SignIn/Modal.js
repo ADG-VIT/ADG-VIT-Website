@@ -23,6 +23,7 @@ import { useDispatch } from "react-redux";
 import { setToken } from "../../store/Auth";
 import { Spinner } from "./Spinner";
 import Banner from "./Banner";
+import { useHistory } from "react-router-dom"
 
 const Modal = (props) => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Modal = (props) => {
   const [hasSubmit, setHasSubmit] = React.useState(false);
   const [hasError, setHasError] = React.useState({ value: false, data: "" });
   const [loggedIn, setHasLoggedIn] = React.useState(false);
+  let history = useHistory();
 
   const handleSubmit = () => {
     setHasSubmit(true);
@@ -49,7 +51,8 @@ const Modal = (props) => {
           setHasLoggedIn(true);
           dispatch(setToken({ payload: data.data.Token }));
           setTimeout(() => {
-            window.location.href = "/";
+            history.push("/");
+            props.onClose();
           }, 1000);
         }
       })
@@ -103,7 +106,7 @@ const Modal = (props) => {
             </Button>
             <Join>
               <Join1>Not a member?</Join1>
-              <Join2 to="/register">Register Now</Join2>
+              <Join2 onClick={() => {history.push("/register")}} id="wrapper" >Register Now</Join2>
             </Join>
           </Form>
         </Stuff>
