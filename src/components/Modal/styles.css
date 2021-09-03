@@ -5,8 +5,9 @@
   right: 0px;
   bottom: 0px;
   background-color: transparent;
-  color: white;
+  color: var(--text);
 }
+
 .ReactModal__Body--open {
   overflow-y: hidden;
 }
@@ -17,15 +18,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(9, 9, 9, 0.975);
+  backdrop-filter: blur(10px);
 }
+
 .container {
   margin-top: 0;
 }
+
 .col-lg-6 {
   color: white;
   text-align: center;
 }
+
 .center {
   display: flex;
   justify-content: center;
@@ -40,11 +44,11 @@
 
 .register-button {
   background-color: #5f2eea;
-  width: 280px;
+  width: 200px;
   font-size: 16px;
   line-height: 24px;
   color: rgba(255, 255, 255, 0.8);
-  padding: 15px;
+  padding: 10px;
   margin: 15px 0;
   border-radius: 15px;
   border-style: none;
@@ -75,6 +79,13 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+}
+
+.modal-wrap {
+  background-color: var(--background);
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
 }
 
 .event-modal-image {
