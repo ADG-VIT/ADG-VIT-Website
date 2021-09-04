@@ -93,7 +93,9 @@ const SignUp = () => {
                 onClick={selectHandle}
                 value="No"
                 required
-              >Yes/No</InputSelection>
+              >
+                Yes/No
+              </InputSelection>
               <IoMdArrowDropdown id="down-arrow" onClick={selectHandle} />
               <OptionWrap
                 style={{
@@ -111,19 +113,24 @@ const SignUp = () => {
             </SelectWrap>
           </div>
           <div>
-            <Label>Registration Number/Uni</Label>
             {selectOption ? (
-              <Input
-                type="text"
-                placeholder="Enter your Registration Number"
-                required
-              />
+              <>
+                <Label>Registration Number</Label>
+                <Input
+                  type="text"
+                  placeholder="Enter your Registration Number"
+                  required
+                />
+              </>
             ) : (
-              <Input
-                type="text"
-                placeholder="Enter your Registration Number"
-                disabled
-              />
+              <>
+                <Label>University name</Label>
+                <Input
+                  type="text"
+                  placeholder="Enter your University Name"
+                  required
+                />
+              </>
             )}
           </div>
           <SubmitButton type="submit">Sign Up</SubmitButton>

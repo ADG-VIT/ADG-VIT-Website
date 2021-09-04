@@ -2,6 +2,9 @@ import React from "react";
 import ReactModal from "react-modal";
 import "./styles.css";
 import axios from "axios";
+import { SpinnerBox } from "../../containers/spinner";
+import { Spinner } from "../SignIn/Spinner";
+import { FaTimes } from "react-icons/fa";
 
 const convertTime = (time) => {
   var a = new Date(time * 1000);
@@ -64,10 +67,23 @@ export default class Modal extends React.Component {
         >
           <div
             className="event-modal-container"
-            onClick={this.handleCloseModal}
           >
             <div className="modal-wrap">
-              <img src={t.posterURL} alt={t.name} className="event-modal-image"></img>
+              <FaTimes
+                style={{
+                  color: "var(--text)",
+                  position: "absolute",
+                  top: 15,
+                  right: 15,
+                  cursor: "pointer",
+                }}
+                onClick={this.handleCloseModal}
+              />
+              <img
+                src={t.posterURL}
+                alt={t.name}
+                className="event-modal-image"
+              ></img>
               <div className="modal-description-wrap">
                 <h1>{t.name}</h1>
                 <h2>{convertTime(t.date)}</h2>
