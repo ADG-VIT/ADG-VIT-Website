@@ -12,7 +12,7 @@ import {
   InputOption,
   SubmitButton,
   SelectWrap,
-  OptionWrap
+  OptionWrap,
 } from "./SignUpElements";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SignInModal from "../SignIn/Signin";
@@ -24,17 +24,17 @@ const SignUp = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [optionOpen, setOptionOpen] = useState(false);
   const [name, setName] = useState("");
-  const [regno, setRegNo] = useState("20BCT0092");
+  const [uni, setUni] = useState("VIT");
+  const [regno, setRegNo] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
-  const [banner,setBanner] = useState({ value: false, data: "" });
-
+  const [error, setError] = useState({ value: false, data: "", type: "" });
 
   const handleOpen = () => {
     setIsOpen(true);
   };
-  
+
   const handleClose = (e) => {
     if (e.target.id === "wrapper") {
       setIsOpen(false);
@@ -73,40 +73,72 @@ const SignUp = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (password !== confirm) {
+      setError({
+        value: true,
+        data: "Passwords do not match",
+        type: "password",
+      });
+      return;
+    }
     Axios.post("https://backend-events.herokuapp.com/users/register", {
       name: name,
       email: email,
       phone: "9347250045",
       password: password,
-      university: "VIT"
-    }).then((data) => {
-      if (data.status === 200) {
-        setBanner({value: true, data: data.data.message});
-      }
-    }).catch((err) => {
-      console.log(err.response)
+      university: uni,
     })
-  }
-
+      .then((data) => {
+        if (data.status === 200) {
+          setError({ value: true, data: data.data.message, type: "confirm" });
+        }
+      })
+      .catch((err) => {
+        setError({
+          value: true,
+          data: err.response.data.message,
+          type: "confirm",
+        });
+      });
+  };
+  const style = error.value ? { border: "2px solid red" } : null;
   return (
     <>
-    {banner.value ? <Banner message={banner.data} /> : null}
+      {error.value ? <Banner message={error.data} /> : null}
       <SignUpContainer>
         <AdgLogoWrap>
           <ADGLogo />
         </AdgLogoWrap>
         <SignUpHeader>Create an Account</SignUpHeader>
         <LoginText>
-          Already Have an Account? <span onClick={() => handleOpen()} >Login</span>
+          Already Have an Account?{" "}
+          <span onClick={() => handleOpen()}>Login</span>
         </LoginText>
         <Form>
           <div>
             <Label>Full Name</Label>
-            <Input type="text" placeholder="Enter your Full Name" required onChange={(e) => setName(e.target.value)} value={name} />
+            <Input
+              type="text"
+              placeholder="Enter your Full Name"
+              required
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
           </div>
           <div>
             <Label>E-Mail ID</Label>
-            <Input type="email" placeholder="Enter your E-Mail ID" required onChange={(e) => setEmail(e.target.value)} value={email} />
+            <Input
+              type="email"
+              placeholder="Enter your E-Mail ID"
+              required
+              onChange={(e) => {
+                setEmail(e.target.value);
+                error.value &&
+                  error.type === "email" &&
+                  setError({ value: false, data: "", type: "" });
+              }}
+              value={email}
+            />
           </div>
           <div>
             <Label>Password</Label>
@@ -114,8 +146,15 @@ const SignUp = () => {
               type="password"
               placeholder="Minimum 8 Characters"
               required
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                error.type === "password" &&
+                  setError({ value: false, data: "", type: "" });
+              }}
               value={password}
+              style={() => {
+                if (error.type === "password") return style;
+              }}
             />
           </div>
           <div>
@@ -124,8 +163,15 @@ const SignUp = () => {
               type="password"
               placeholder="Confirm your Password"
               required
-              onChange={(e) => setConfirm(e.target.value)}
+              onChange={(e) => {
+                setConfirm(e.target.value);
+                error.type === "password" &&
+                  setError({ value: false, data: "", type: "" });
+              }}
               value={confirm}
+              style={() => {
+                if (error.type === "password") return style;
+              }}
             />
           </div>
           <div>
@@ -163,6 +209,13 @@ const SignUp = () => {
                   type="text"
                   placeholder="Enter your Registration Number"
                   required
+                  onChange={(e) => {
+                    setRegNo(e.target.value);
+                    error.value &&
+                      error.type === "reg" &&
+                      setError({ value: false, data: "", type: "" });
+                  }}
+                  value={regno}
                 />
               </>
             ) : (
@@ -172,11 +225,14 @@ const SignUp = () => {
                   type="text"
                   placeholder="Enter your University Name"
                   required
+                  onChange={(e) => setUni(e.target.value)}
                 />
               </>
             )}
           </div>
-          <SubmitButton type="submit" onClick={submitHandler} >Sign Up</SubmitButton>
+          <SubmitButton type="submit" onClick={submitHandler}>
+            Sign Up
+          </SubmitButton>
         </Form>
       </SignUpContainer>
       {isOpen && <SignInModal onClose={handleClose} />}

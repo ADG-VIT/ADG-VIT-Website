@@ -94,6 +94,7 @@ export const Input = styled.input`
   width: 20rem;
   padding-left: 1rem;
   color: var(--text);
+  border: 2px solid transparent;
 
   ::placeholder {
     color: #797979;
@@ -195,7 +196,8 @@ export const SubmitButton = styled.button`
 export const Banner = styled.div`
     position: absolute;
     top: 5rem;
-    left: 30%;
+    left: 50vw;
+    transform: translateX(-50%);
     background-color: var(--blue);
     color: var(--text);
     font-size: 1.2rem;
