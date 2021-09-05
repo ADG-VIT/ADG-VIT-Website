@@ -12,18 +12,29 @@ import {
   InputOption,
   SubmitButton,
   SelectWrap,
-  OptionWrap,
+  OptionWrap
 } from "./SignUpElements";
 import { IoMdArrowDropdown } from "react-icons/io";
 import SignInModal from "../SignIn/Signin";
+import Axios from "axios";
+import Banner from "./Banner";
 
 const SignUp = () => {
   const [selectOption, setSelectOption] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [optionOpen, setOptionOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [regno, setRegNo] = useState("20BCT0092");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [banner,setBanner] = useState({ value: false, data: "" });
+
+
   const handleOpen = () => {
     setIsOpen(true);
   };
+  
   const handleClose = (e) => {
     if (e.target.id === "wrapper") {
       setIsOpen(false);
@@ -60,8 +71,26 @@ const SignUp = () => {
     selectHandle();
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    Axios.post("https://backend-events.herokuapp.com/users/register", {
+      name: name,
+      email: email,
+      phone: "9347250045",
+      password: password,
+      university: "VIT"
+    }).then((data) => {
+      if (data.status === 200) {
+        setBanner({value: true, data: data.data.message});
+      }
+    }).catch((err) => {
+      console.log(err.response)
+    })
+  }
+
   return (
     <>
+    {banner.value ? <Banner message={banner.data} /> : null}
       <SignUpContainer>
         <AdgLogoWrap>
           <ADGLogo />
@@ -73,11 +102,11 @@ const SignUp = () => {
         <Form>
           <div>
             <Label>Full Name</Label>
-            <Input type="text" placeholder="Enter your Full Name" required />
+            <Input type="text" placeholder="Enter your Full Name" required onChange={(e) => setName(e.target.value)} value={name} />
           </div>
           <div>
             <Label>E-Mail ID</Label>
-            <Input type="email" placeholder="Enter your E-Mail ID" required />
+            <Input type="email" placeholder="Enter your E-Mail ID" required onChange={(e) => setEmail(e.target.value)} value={email} />
           </div>
           <div>
             <Label>Password</Label>
@@ -85,6 +114,8 @@ const SignUp = () => {
               type="password"
               placeholder="Minimum 8 Characters"
               required
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             />
           </div>
           <div>
@@ -93,6 +124,8 @@ const SignUp = () => {
               type="password"
               placeholder="Confirm your Password"
               required
+              onChange={(e) => setConfirm(e.target.value)}
+              value={confirm}
             />
           </div>
           <div>
@@ -136,7 +169,7 @@ const SignUp = () => {
               />
             )}
           </div>
-          <SubmitButton type="submit">Sign Up</SubmitButton>
+          <SubmitButton type="submit" onClick={submitHandler} >Sign Up</SubmitButton>
         </Form>
       </SignUpContainer>
       {isOpen && <SignInModal onClose={handleClose} />}

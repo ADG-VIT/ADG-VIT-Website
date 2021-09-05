@@ -22,6 +22,7 @@ export const Box = styled.div`
     min-height: 40rem;
     border-radius: 15px;
     background-color: var(--background);
+    position: relative;
     @media screen and (max-width: 1376px){
         min-width: 90%;
     }
@@ -32,6 +33,18 @@ export const Box = styled.div`
         width: auto;
     }
 `
+export const Icon = styled.div`
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--text);
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 
 export const ImageDiv = styled.div`
     background-color: #5017EB59;
@@ -42,7 +55,12 @@ export const ImageDiv = styled.div`
     justify-content: center;
     align-items: center;
     @media screen and (max-width: 1376px){
-        width: 30rem;
+        width: 60%;
+        height: 35rem;
+    }
+    @media screen and (max-width: 1009px){
+        width: 50%;
+        height: 35rem;
     }
     @media screen and (max-width: 760px){
         display: none;
@@ -53,12 +71,14 @@ export const Image = styled.img`
     width: 100%;
     height: 100%;
 `
+
 export const Stuff = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 `
+
 export const HeadingHolder = styled.div`
     display: flex;
     justify-content: center;
@@ -121,6 +141,7 @@ export const Input2 = styled.input`
     border: none;
     padding-left: 1rem;
     border-radius: 5px;
+    transition: all ease 0.5s;
     &::placeholder {
         color: var(--text);
     }
@@ -187,4 +208,5 @@ export const Banner1 = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    z-index: 10;
 `

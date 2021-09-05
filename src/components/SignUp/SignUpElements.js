@@ -190,3 +190,20 @@ export const SubmitButton = styled.button`
     color: rgba(255, 255, 255, 1);
   }
 `;
+
+
+export const Banner = styled.div`
+    position: absolute;
+    top: 5rem;
+    left: 30%;
+    background-color: var(--blue);
+    color: var(--text);
+    font-size: 1.2rem;
+    min-width: 10rem;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 10;
+`

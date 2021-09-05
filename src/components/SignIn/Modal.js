@@ -16,6 +16,7 @@ import {
   Join1,
   Join2,
   Join,
+  Icon
 } from "./ModalElements";
 import Image1 from "./Saly-16.svg";
 import Axios from "axios";
@@ -23,7 +24,8 @@ import { useDispatch } from "react-redux";
 import { setToken } from "../../store/Auth";
 import { Spinner } from "./Spinner";
 import Banner from "./Banner";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
+import {ImCross} from "react-icons/im"
 
 const Modal = (props) => {
   const dispatch = useDispatch();
@@ -32,10 +34,13 @@ const Modal = (props) => {
   const [hasSubmit, setHasSubmit] = React.useState(false);
   const [hasError, setHasError] = React.useState({ value: false, data: "" });
   const [loggedIn, setHasLoggedIn] = React.useState(false);
+  const [forgot, setForgot] = React.useState(false);
+  const [sentEmail, setSentEmail] = React.useState(false);
   let history = useHistory();
 
   const handleSubmit = () => {
-    setHasSubmit(true);
+    if(!forgot){
+      setHasSubmit(true);
     if (email === "" || password === "") {
       setHasError(true);
       alert("Invalid Username or Password");
@@ -60,9 +65,30 @@ const Modal = (props) => {
         setHasError({ value: true, data: err.response.data.message });
       })
       .finally(() => setHasSubmit(false));
+    } else {
+      setHasSubmit(true);
+    if (email === "") {
+      setHasError(true);
+      alert("Invalid Email");
+      setHasSubmit(false);
+      return;
+    }
+    Axios.post("https://backend-events.herokuapp.com/users/change/password", {
+      email: email
+    })
+      .then((data) => {
+        if (data.status === 200) {
+          setSentEmail(true);
+        }
+      })
+      .catch((err) => {
+        setHasError({ value: true, data: err.response.data.message });
+      })
+      .finally(() => setHasSubmit(false));
+    }
   };
   const handleForgot = () => {
-    alert("Forgot");
+    setForgot((prev) => !prev);
   };
   const style = { border: "2px solid red" };
 
@@ -70,19 +96,27 @@ const Modal = (props) => {
     <Wrapper onClick={props.onClose} id="wrapper">
       {hasError.value ? <Banner message={hasError.data} /> : null}
       {loggedIn ? <Banner message={`Authenticated as ${email}`} /> : null}
+      {sentEmail ? <Banner message={"Please check your email for a verification link"} /> : null}
       <Box onClick={null}>
+      <Icon onClick={() => props.onClose()}>
+        <ImCross />
+      </Icon>
         <ImageDiv>
           <Image src={Image1} alt="Random Image" />
         </ImageDiv>
         <Stuff>
           <HeadingHolder>
-            <Heading1>Hello Again!</Heading1>
-            <Heading4>Login to access your account</Heading4>
+            <Heading1>
+              {!forgot ? "Hello Again!" : "Forgot password?"}
+            </Heading1>
+            <Heading4>
+              {!forgot ? "Login to access your account" : "We got your back"}
+            </Heading4>
           </HeadingHolder>
           <Form>
             <Input1
               type="email"
-              placeholder="Username"
+              placeholder={!forgot ? "Username" : "Email"}
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -90,7 +124,7 @@ const Modal = (props) => {
               }}
               style={hasError.value ? style : null}
             />
-            <Input2
+            {!forgot && <Input2
               type="password"
               placeholder="Password"
               value={password}
@@ -99,10 +133,12 @@ const Modal = (props) => {
                 hasError.value && setHasError(false);
               }}
               style={hasError.value ? style : null}
-            />
-            <Forgot onClick={handleForgot}>Forgot Password?</Forgot>
+            />}
+            <Forgot onClick={handleForgot}>
+              {!forgot ? "Forgot Password?" : "Sign in"}
+            </Forgot>
             <Button onClick={handleSubmit}>
-              {hasSubmit ? <Spinner /> : "Login"}
+              {hasSubmit ? <Spinner /> : (!forgot ? "Login" : "Submit")}
             </Button>
             <Join>
               <Join1>Not a member?</Join1>
