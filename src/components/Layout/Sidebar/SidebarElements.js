@@ -16,6 +16,7 @@ export const SidebarContainer = styled.aside`
   transition: all 0.3s ease-in-out;
   opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
   top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  position: fixed;
 `;
 
 export const CloseIcon = styled(FaTimes)`

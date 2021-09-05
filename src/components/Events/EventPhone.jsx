@@ -62,7 +62,7 @@ export default function EventPhone(props) {
         <img
           src={props.img}
           alt={props.title}
-          className="event-image"
+          className="event-image-phone"
         ></img>
         <div className="event-description-wrap">
           <div className="event-title">{props.title}</div>

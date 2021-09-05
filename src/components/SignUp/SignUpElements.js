@@ -145,7 +145,7 @@ export const OptionWrap = styled.div`
   width: 100px;
   border-radius: 10px;
   height: 5rem;
-  background-color: var(--form-bg);
+  background-color: var(--background);
   color: var(--text);
   overflow: hidden;
 `;

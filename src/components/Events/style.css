@@ -31,6 +31,10 @@
 }
 
 .event-image {
+  height: 90%;
+}
+
+.event-image-phone {
   width: 80%;
 }
 
