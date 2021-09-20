@@ -19,6 +19,11 @@ import SignInModal from "../SignIn/Signin";
 import Axios from "axios";
 import Banner from "./Banner";
 
+
+var emailRe = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var regRe = /^[6-9]\d{9}$/;
+
+
 const SignUp = () => {
   const [selectOption, setSelectOption] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +33,7 @@ const SignUp = () => {
   const [regno, setRegNo] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirm, setConfirm] = useState("");
+  const [phone, setPhone] = useState("");
   const [error, setError] = useState({ value: false, data: "", type: "" });
 
   const handleOpen = () => {
@@ -36,7 +41,9 @@ const SignUp = () => {
   };
 
   const handleClose = (e) => {
-    if (e.target.id === "wrapper") {
+    if (e && e.target.id === "wrapper") {
+      setIsOpen(false);
+    } else if (!e) {
       setIsOpen(false);
     }
   };
@@ -73,12 +80,16 @@ const SignUp = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (password !== confirm) {
-      setError({
-        value: true,
-        data: "Passwords do not match",
-        type: "password",
-      });
+    if(phone.length !== 10){
+      setError({value: true, data: "Invalid Phone Number", type: "phone"});
+      return;
+    }
+    if(!emailRe.test(email)){
+      setError({value: true, data: "Invalid Email Id", type: "email"});
+      return;
+    }
+    if(regno !== "" && !regRe.test(regno)){
+      setError({value: true, data: "Invalid Registration Number", type: "reg"});
       return;
     }
     Axios.post("https://backend-events.herokuapp.com/users/register", {
@@ -138,6 +149,7 @@ const SignUp = () => {
                   setError({ value: false, data: "", type: "" });
               }}
               value={email}
+              style={error.type === "email" ? style : null}
             />
           </div>
           <div>
@@ -152,26 +164,21 @@ const SignUp = () => {
                   setError({ value: false, data: "", type: "" });
               }}
               value={password}
-              style={() => {
-                if (error.type === "password") return style;
-              }}
             />
           </div>
           <div>
-            <Label>Confirm Password</Label>
+            <Label>Phone Number</Label>
             <Input
-              type="password"
-              placeholder="Confirm your Password"
+              type="text"
+              placeholder="Enter your Phone Number"
               required
               onChange={(e) => {
-                setConfirm(e.target.value);
-                error.type === "password" &&
+                setPhone(e.target.value);
+                error.type === "phone" &&
                   setError({ value: false, data: "", type: "" });
               }}
-              value={confirm}
-              style={() => {
-                if (error.type === "password") return style;
-              }}
+              value={phone}
+              style={error.type === "phone" ? style : null}
             />
           </div>
           <div>
