@@ -18,10 +18,12 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import SignInModal from "../SignIn/Signin";
 import Axios from "axios";
 import Banner from "./Banner";
+import { Spinner } from "../SignIn/Spinner";
 
 
 var emailRe = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var regRe = /^[6-9]\d{9}$/;
+var phoneRe = /^[6-9]\d{9}$/;
+var regRe = /^[12][09][A-Z][A-Z][A-Z]\d{4}$/;
 
 
 const SignUp = () => {
@@ -35,6 +37,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState({ value: false, data: "", type: "" });
+  const [hasSubmit, setHasSubmit] = useState(false);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -80,7 +83,7 @@ const SignUp = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if(phone.length !== 10){
+    if(!phoneRe.test(phone)){
       setError({value: true, data: "Invalid Phone Number", type: "phone"});
       return;
     }
@@ -92,12 +95,14 @@ const SignUp = () => {
       setError({value: true, data: "Invalid Registration Number", type: "reg"});
       return;
     }
+    setHasSubmit(true);
     Axios.post("https://backend-events.herokuapp.com/users/register", {
       name: name,
       email: email,
-      phone: "9347250045",
+      phone: phone,
       password: password,
       university: uni,
+      regno: regno === "" ? undefined : regno
     })
       .then((data) => {
         if (data.status === 200) {
@@ -110,7 +115,8 @@ const SignUp = () => {
           data: err.response.data.message,
           type: "confirm",
         });
-      });
+        setTimeout(() => setError({ value: false, data: "", type: "" }), 1500)
+      }).finally(() => setHasSubmit(false));
   };
   const style = error.value ? { border: "2px solid red" } : null;
   return (
@@ -223,6 +229,7 @@ const SignUp = () => {
                       setError({ value: false, data: "", type: "" });
                   }}
                   value={regno}
+                  style={error.type === "reg" ? style : null}
                 />
               </>
             ) : (
@@ -238,7 +245,7 @@ const SignUp = () => {
             )}
           </div>
           <SubmitButton type="submit" onClick={submitHandler}>
-            Sign Up
+          {hasSubmit ? <Spinner /> : "SignUp"}
           </SubmitButton>
         </Form>
       </SignUpContainer>

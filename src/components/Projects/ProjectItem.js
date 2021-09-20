@@ -42,7 +42,7 @@ const ProjectItem = (props) => {
           </a>
         </ProjectLinksR>
         <ProjectAboutR>{props.about}</ProjectAboutR>
-        <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={true}></Modal>
+        <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={true} name={props.title}></Modal>
       </ProjectWrapper>
     );
   }
@@ -71,7 +71,7 @@ const ProjectItem = (props) => {
           </a>
       </ProjectLinks>
       <ProjectAbout>{props.about}</ProjectAbout>
-      <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={false}></Modal>
+      <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={false} name={props.title}></Modal>
     </ProjectWrapper>
   );
 };

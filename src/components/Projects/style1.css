@@ -73,7 +73,7 @@
   padding: 1rem;
 }
 
-.event-modal-container .modal-wrap {
+.event-modal-container .modal-wrap1 {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -81,30 +81,31 @@
   gap: 2rem;
 }
 
-.modal-wrap {
+.modal-wrap1 {
   background-color: var(--background);
-  padding: 1rem;
+  padding: 1rem 10rem;
   border-radius: 20px;
   position: relative;
 }
 
-.event-modal-image {
-  width: 50%;
+.event-modal-image1 {
+  width: 30%;
+  height: 90vh;
 }
 
-.modal-wrap h1 {
+.modal-wrap1 h1 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-.modal-wrap h2 {
+.modal-wrap1 h2 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-.modal-wrap p {
+.modal-wrap1 p {
   font-size: 1rem;
   font-weight: 400;
   margin-bottom: 1rem;
@@ -117,26 +118,26 @@
     margin: 15px 0;
   }
 
-  .event-modal-container .modal-wrap {
+  .event-modal-container .modal-wrap1 {
     flex-direction: column;
     text-align: center;
   }
 
-  .event-modal-image {
+  .event-modal-image1 {
     width: 80%;
   }
 }
 
 @media screen and (max-width: 450px) {
-  .modal-wrap h1 {
+  .modal-wrap1 h1 {
     font-size: 1.5rem;
   }
 
-  .modal-wrap h2 {
+  .modal-wrap1 h2 {
     font-size: 1.1rem;
   }
 
-  .modal-wrap p {
+  .modal-wrap1 p {
     font-size: 0.8rem;
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactModal from "react-modal";
-import "./styles.css";
+import "./style1.css";
 import { FaTimes } from "react-icons/fa";
 import {ProjectButton, ProjectButtonR} from "./ProjectElements";
 
@@ -34,7 +34,7 @@ const Modal = (props) => {
         overlayClassName="Overlay"
       >
         <div className="event-modal-container">
-          <div className="modal-wrap">
+          <div className="modal-wrap1">
             <FaTimes
               style={{
                 color: "var(--text)",
@@ -42,17 +42,18 @@ const Modal = (props) => {
                 top: 15,
                 right: 15,
                 cursor: "pointer",
+                fontSize: "2rem"
               }}
               onClick={handleCloseModal}
             />
             <img
-              src={data.projects.link}
-              alt={data.projects.name}
-              className="event-modal-image"
+              src={props.img}
+              className="event-modal-image1"
+              alt={`${props.name}`}
             ></img>
             <div className="modal-description-wrap">
-              <h1>{data.projects.name}</h1>
-              <p>{data.projects.des}</p>
+              <h1>{props.name}</h1>
+              <p>{props.des}</p>
             </div>
           </div>
         </div>

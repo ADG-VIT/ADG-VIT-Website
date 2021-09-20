@@ -185,6 +185,9 @@ export const SubmitButton = styled.button`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     transition: all 0.2s ease-in-out;
