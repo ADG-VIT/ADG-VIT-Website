@@ -66,7 +66,9 @@ const Navbar = ({ toggle }) => {
     setIsOpen(true);
   };
   const handleClose = (e) => {
-    if (e.target.id === "wrapper") {
+    if (e && e.target.id === "wrapper") {
+      setIsOpen(false);
+    } else if (!e) {
       setIsOpen(false);
     }
   };

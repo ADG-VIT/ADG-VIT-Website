@@ -4,23 +4,17 @@ import {
   ProjectAbout,
   ProjectLinks,
   ProjectImage,
-  ProjectButton,
   ProjectTitleR,
   ProjectAboutR,
   ProjectLinksR,
   ProjectImageR,
-  ProjectButtonR,
   ProjectLinkImage,
 } from "./ProjectElements";
+import Modal from "./Modal"
 import Android from "./Google Play.svg";
 import Apple from "./Apple Store.svg";
 
 const ProjectItem = (props) => {
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    window.location.href = props.more;
-  }
 
   if (props.right) {
     return (
@@ -48,7 +42,7 @@ const ProjectItem = (props) => {
           </a>
         </ProjectLinksR>
         <ProjectAboutR>{props.about}</ProjectAboutR>
-        <ProjectButtonR onClick={handleClick} >Know More</ProjectButtonR>
+        <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={true} name={props.title}></Modal>
       </ProjectWrapper>
     );
   }
@@ -77,7 +71,7 @@ const ProjectItem = (props) => {
           </a>
       </ProjectLinks>
       <ProjectAbout>{props.about}</ProjectAbout>
-      <ProjectButton onClick={handleClick}>Know More</ProjectButton>
+      <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={false} name={props.title}></Modal>
     </ProjectWrapper>
   );
 };

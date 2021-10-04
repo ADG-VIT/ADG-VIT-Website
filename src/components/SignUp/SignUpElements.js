@@ -94,6 +94,7 @@ export const Input = styled.input`
   width: 20rem;
   padding-left: 1rem;
   color: var(--text);
+  border: 2px solid transparent;
 
   ::placeholder {
     color: #797979;
@@ -184,9 +185,30 @@ export const SubmitButton = styled.button`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     transition: all 0.2s ease-in-out;
     color: rgba(255, 255, 255, 1);
   }
 `;
+
+
+export const Banner = styled.div`
+    position: absolute;
+    top: 5rem;
+    left: 50vw;
+    transform: translateX(-50%);
+    background-color: var(--blue);
+    color: var(--text);
+    font-size: 1.2rem;
+    min-width: 10rem;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 10;
+`

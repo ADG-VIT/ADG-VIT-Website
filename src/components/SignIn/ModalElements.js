@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Link as LinkRouter } from "react-router-dom";
 
 export const Wrapper = styled.div`
     height: 100vh;
@@ -19,10 +18,11 @@ export const Box = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 64%;
-    min-height: 30rem;
+    width: 70%;
+    min-height: 40rem;
     border-radius: 15px;
     background-color: var(--background);
+    position: relative;
     @media screen and (max-width: 1376px){
         min-width: 90%;
     }
@@ -33,17 +33,34 @@ export const Box = styled.div`
         width: auto;
     }
 `
+export const Icon = styled.div`
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--text);
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 
 export const ImageDiv = styled.div`
     background-color: #5017EB59;
     border-radius: 15px;
-    margin: 1.5rem 1rem;
-    width: 50%;
+    margin: 1rem 0rem;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     @media screen and (max-width: 1376px){
-        width: 30rem;
+        width: 60%;
+        height: 35rem;
+    }
+    @media screen and (max-width: 1009px){
+        width: 50%;
+        height: 35rem;
     }
     @media screen and (max-width: 760px){
         display: none;
@@ -54,12 +71,14 @@ export const Image = styled.img`
     width: 100%;
     height: 100%;
 `
+
 export const Stuff = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 `
+
 export const HeadingHolder = styled.div`
     display: flex;
     justify-content: center;
@@ -122,6 +141,7 @@ export const Input2 = styled.input`
     border: none;
     padding-left: 1rem;
     border-radius: 5px;
+    transition: all ease 0.5s;
     &::placeholder {
         color: var(--text);
     }
@@ -150,9 +170,10 @@ export const Button = styled.button`
   color: rgba(255, 255, 255, 1);
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 
   :hover {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 1);
   }
 `;
 
@@ -161,11 +182,12 @@ export const Join1 = styled.p`
     font-weight: 400;
     color: var(--text);
 `
-export const Join2 = styled(LinkRouter)`
+export const Join2 = styled.p`
     text-align: center;
     font-weight: 600;
     color: var(--blue);
     margin-left: 0.2rem;
+    cursor: pointer;
 `
 
 export const Join  = styled.div`
@@ -186,4 +208,5 @@ export const Banner1 = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    z-index: 10;
 `

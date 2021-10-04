@@ -32,6 +32,8 @@ export const CardImage = styled.img`
   height: 100%;
   border-radius: 15px;
   transition: all 0.75s ease;
+  filter: brightness(75%);
+  pointer-events: none;
   ${CardWrapper}:hover & {
     filter: brightness(20%);
   }
