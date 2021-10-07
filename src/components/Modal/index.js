@@ -3,6 +3,8 @@ import ReactModal from "react-modal";
 import "./styles.css";
 import { FaTimes } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import Banner from "../SignIn/Banner";
+import axios from "axios";
 
 const convertTime = (time) => {
   var a = new Date(time * 1000);
@@ -29,7 +31,9 @@ const convertTime = (time) => {
 
 const Modal = (props) => {
   const [data, setData] = React.useState({ showModal: false, events: [] });
+  const [banner, setBanner] = React.useState({value: false, data: ''});
   const events = useSelector((state) => state.event.event);
+  var token = useSelector((state) => state.counter.leAuthorisationToken);
   const handleOpenModal = () => {
     setData((prev) => {
       return {
@@ -56,9 +60,48 @@ const Modal = (props) => {
         ...prev,
         showModal: false
       }
-    })
+    });
+    setBanner({value: false, data: ''});
+  };
+
+  const handleRegister = () => {
+    if(!token){
+      if(!localStorage.getItem('leAuthorisationToken')){
+        setBanner({value: true, data: 'Please sign in'});
+      } else {
+        axios.post(`https://backend-events.herokuapp.com/events/${props.id}`, undefined, {
+          headers: {
+            'auth-token': localStorage.getItem('leAuthorisationToken')
+          }
+        }).then(res => {
+          if (res.status === 200) {
+            setBanner({value: true, data: 'Successfully registered'})
+          }
+        }).catch(err => console.log(err)).finally(() => {
+          setTimeout(() => {
+            setBanner({value: false, data: ''})
+          }, 1000);
+        })
+      }
+    } else {
+      axios.post(`https://backend-events.herokuapp.com/events/${props.id}`, undefined, {
+        headers: {
+          'auth-token': token
+        }
+      }).then(res => {
+        if (res.status === 200) {
+          setBanner({value: true, data: 'Successfully registered'})
+        }
+      }).catch(err => console.log(err)).finally(() => {
+        setTimeout(() => {
+          setBanner({value: false, data: ''})
+        }, 1000);
+      })
+    }
   }
   return (
+    <React.Fragment>
+      {banner.value ? <Banner message={banner.data} /> : null}
     <div>
       <button className="register-button" onClick={handleOpenModal}>
         Know More
@@ -69,7 +112,7 @@ const Modal = (props) => {
         onRequestClose={handleCloseModal}
         className="Modal"
         overlayClassName="Overlay"
-      >
+        >
         <div className="event-modal-container">
           <div className="modal-wrap">
             <FaTimes
@@ -81,22 +124,23 @@ const Modal = (props) => {
                 cursor: "pointer",
               }}
               onClick={handleCloseModal}
-            />
+              />
             <img
               src={data.events.posterURL}
               alt={data.events.name}
               className="event-modal-image"
-            ></img>
+              ></img>
             <div className="modal-description-wrap">
               <h1>{data.events.name}</h1>
               <h2>{convertTime(data.events.date)}</h2>
               <p>{data.events.info}</p>
-              <button className="register-button">Register Now</button>
+              <button className="register-button" onClick={handleRegister}>Register Now</button>
             </div>
           </div>
         </div>
       </ReactModal>
     </div>
+    </React.Fragment>
   );
 };
 
