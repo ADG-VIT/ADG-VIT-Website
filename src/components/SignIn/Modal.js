@@ -54,7 +54,7 @@ const Modal = (props) => {
       .then((data) => {
         if (data.status === 200) {
           setHasLoggedIn(true);
-          dispatch(setToken({ payload: data.data.Token }));
+          dispatch(setToken({ payload: data.data.token }));
           setTimeout(() => {
             history.push("/");
             props.onClose();

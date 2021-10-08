@@ -9,13 +9,13 @@ import {
   ProjectLinksR,
   ProjectImageR,
   ProjectLinkImage,
+  ProjectButton,
+  ProjectButtonR
 } from "./ProjectElements";
-import Modal from "./Modal"
 import Android from "./Google Play.svg";
 import Apple from "./Apple Store.svg";
 
 const ProjectItem = (props) => {
-
   if (props.right) {
     return (
       <ProjectWrapper>
@@ -42,7 +42,7 @@ const ProjectItem = (props) => {
           </a>
         </ProjectLinksR>
         <ProjectAboutR>{props.about}</ProjectAboutR>
-        <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={true} name={props.title}></Modal>
+        <ProjectButtonR>Know More</ProjectButtonR>
       </ProjectWrapper>
     );
   }
@@ -71,7 +71,7 @@ const ProjectItem = (props) => {
           </a>
       </ProjectLinks>
       <ProjectAbout>{props.about}</ProjectAbout>
-      <Modal id={props.id} des={props.about} link={props.more} img={props.imgSrc} right={false} name={props.title}></Modal>
+      <ProjectButton>Know More</ProjectButton>
     </ProjectWrapper>
   );
 };

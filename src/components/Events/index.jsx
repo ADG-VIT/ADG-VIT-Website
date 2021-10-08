@@ -101,7 +101,6 @@ export default function EventsList(props){
           </center>
           <Timeline align="alternate">
             {isUpdated.value.map((t, index) => {
-              console.log(t)
               return (
                 <Event
                   id={t._id}
