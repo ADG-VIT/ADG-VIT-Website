@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /domains
+Allow: /events
+Allow: /partners
+Allow: /register
+Allow: /team
+Allow: /projects
+
+User-agent: EtaoSpider
+Disallow: /
+
+User-agent: AmazonAdBot
+Disallow: /
