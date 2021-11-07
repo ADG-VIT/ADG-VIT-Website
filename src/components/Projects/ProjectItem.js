@@ -16,6 +16,7 @@ import Android from "./Google Play.svg";
 import Apple from "./Apple Store.svg";
 
 const ProjectItem = (props) => {
+  console.log(props);
   if (props.right) {
     return (
       <ProjectWrapper>
@@ -28,13 +29,13 @@ const ProjectItem = (props) => {
         </ProjectImageR>
         <ProjectTitleR>{props.title}</ProjectTitleR>
         <ProjectLinksR>
-          <a href={"https://" + props.android} style={{"marginRight": "1rem"}}>
+          <a href={props.android} style={{"marginRight": "1rem"}}>
             <ProjectLinkImage
               src={Android}
               alt="Google play link"
             ></ProjectLinkImage>
           </a>
-          <a href={"https://" + props.ios}>
+          <a href={props.ios}>
             <ProjectLinkImage
               src={Apple}
               alt="Apple play link"
@@ -42,7 +43,7 @@ const ProjectItem = (props) => {
           </a>
         </ProjectLinksR>
         <ProjectAboutR>{props.about}</ProjectAboutR>
-        <ProjectButtonR>Know More</ProjectButtonR>
+        <ProjectButtonR onClick={() => {window.open(props.more, "_blank")}}>Know More</ProjectButtonR>
       </ProjectWrapper>
     );
   }
@@ -57,13 +58,13 @@ const ProjectItem = (props) => {
       </ProjectImage>
       <ProjectTitle>{props.title}</ProjectTitle>
       <ProjectLinks>
-      <a href={"https://" + props.android}>
+      <a href={props.android}>
             <ProjectLinkImage
               src={Android}
               alt="Google play link"
             ></ProjectLinkImage>
           </a>
-          <a href={"https://" + props.ios} style={{"marginLeft": "1rem"}}>
+          <a href={props.ios} style={{"marginLeft": "1rem"}}>
             <ProjectLinkImage
               src={Apple}
               alt="Apple play link"
@@ -71,7 +72,7 @@ const ProjectItem = (props) => {
           </a>
       </ProjectLinks>
       <ProjectAbout>{props.about}</ProjectAbout>
-      <ProjectButton>Know More</ProjectButton>
+      <ProjectButton onClick={() => {window.open(props.more, "_blank")}}>Know More</ProjectButton>
     </ProjectWrapper>
   );
 };
