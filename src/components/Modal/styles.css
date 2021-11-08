@@ -4,7 +4,6 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: transparent;
   color: var(--text);
 }
 
@@ -18,7 +17,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(25px);
 }
 
 .container {
@@ -82,7 +81,6 @@
 }
 
 .modal-wrap {
-  background-color: var(--background);
   padding: 1rem;
   border-radius: 20px;
   position: relative;
@@ -91,7 +89,8 @@
 }
 
 .event-modal-image {
-  width: 50%;
+  width: 30%;
+  padding-right: 4%;
 }
 
 .modal-wrap h1 {
