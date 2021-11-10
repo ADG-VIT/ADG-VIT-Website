@@ -29,7 +29,7 @@ const convertTime = (time) => {
 };
 
 
-const Modal = (props) => {
+const Modal = ({handler, ...props}) => {
   const [data, setData] = React.useState({ showModal: false, events: [] });
   const [banner, setBanner] = React.useState({value: false, data: ''});
   const events = useSelector((state) => state.event.event);
@@ -76,6 +76,7 @@ const Modal = (props) => {
         }).then(res => {
           if (res.status === 200) {
             setBanner({value: true, data: 'Successfully registered'})
+            handler(prev => [...prev, props.id])
           }
         }).catch(err => console.log(err)).finally(() => {
           setTimeout(() => {
@@ -91,6 +92,7 @@ const Modal = (props) => {
       }).then(res => {
         if (res.status === 200) {
           setBanner({value: true, data: 'Successfully registered'})
+          handler(prev => [...prev, props.id])
         }
       }).catch(err => console.log(err)).finally(() => {
         setTimeout(() => {
@@ -134,7 +136,7 @@ const Modal = (props) => {
               <h1>{data.events.name}</h1>
               <h2>{convertTime(data.events.date)}</h2>
               <p>{data.events.info}</p>
-              <button className="register-button" onClick={handleRegister}>Register Now</button>
+              {props.disable ? <button className="register-button-disabled" disabled>Registered</button> : <button className="register-button" onClick={handleRegister}>Register Now</button>}
             </div>
           </div>
         </div>

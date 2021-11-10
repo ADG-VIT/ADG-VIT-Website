@@ -7,7 +7,7 @@ import TimelineConnector from "@material-ui/lab/TimelineConnector";
 import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
 
-export default function EventPhone(props) {
+export default function EventPhone({handler, ...props}) {
   const convertTime = (time) => {
     var a = new Date(time * 1000);
     var months = [
@@ -29,7 +29,6 @@ export default function EventPhone(props) {
     var date = a.getDate();
     return date + " " + month + " " + year;
   };
-
   return (
     <TimelineItem className="timeline-item">
       <TimelineSeparator>
@@ -70,7 +69,7 @@ export default function EventPhone(props) {
             <span>{convertTime(props.date)}</span> <br />
           </div>
           <div className="event-desc">{props.desc}</div>
-          <Modal id={props.id}></Modal>
+          <Modal id={props.id} disable={props.disable} handler={handler}></Modal>
         </div>
       </TimelineContent>
     </TimelineItem>

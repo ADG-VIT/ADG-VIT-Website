@@ -26,12 +26,12 @@ export const SeeAll = styled(LinkRouter)`
   color: var(--blue);
   font-size: 1.35rem;
   border-bottom: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
   @media screen and (max-width: 450px) {
     font-size: 1rem;
   }
   &:hover {
     cursor: pointer;
-    transition: all 0.1s ease-in-out;
     border-bottom: 2px solid var(--blue);
   }
 `;
@@ -60,7 +60,7 @@ export const Partner = styled.div`
   @media screen and (max-width: 1100px) {
     width: 8rem;
   }
-  
+
   @media screen and (max-width: 800px) {
     margin: 0 0.4rem;
   }
