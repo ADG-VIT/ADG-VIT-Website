@@ -27,6 +27,7 @@ export const Link = styled(LinkRouter)`
   color: var(--blue);
   font-size: 1.35rem;
   border-bottom: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
   @media screen and (max-width: 450px) {
     font-size: 1rem;
   }

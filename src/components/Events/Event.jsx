@@ -8,7 +8,7 @@ import TimelineContent from "@material-ui/lab/TimelineContent";
 import TimelineDot from "@material-ui/lab/TimelineDot";
 import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 
-export default function Event(props) {
+export default function Event({handler, ...props}) {
   const convertTime = (time) => {
     var a = new Date(time * 1000);
     var months = [
@@ -30,7 +30,6 @@ export default function Event(props) {
     var date = a.getDate();
     return date + " " + month + " " + year;
   };
-
   if (props.index % 2 === 0)
     return (
       <TimelineItem>
@@ -74,7 +73,7 @@ export default function Event(props) {
               <span>{convertTime(props.date)}</span> <br />
             </div>
             <div className="event-desc">{props.desc}</div>
-            <Modal id={props.id}></Modal>
+            <Modal id={props.id} disable={props.disable} handler={handler}></Modal>
           </div>
         </TimelineContent>
       </TimelineItem>
@@ -122,7 +121,7 @@ export default function Event(props) {
               <span>{convertTime(props.date)}</span> <br />
             </div>
             <div className="event-desc">{props.desc}</div>
-            <Modal id={props.id}></Modal>
+            <Modal id={props.id} disable={props.disable} handler={handler}></Modal>
           </div>
         </TimelineContent>
       </TimelineItem>

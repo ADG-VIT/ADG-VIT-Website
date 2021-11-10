@@ -74,8 +74,9 @@ import {Spinner, SpinnerBox} from "../../containers/spinner"
 //   }
 // }
 
-export default function EventsList(props){
+export default function EventsList(){
   const [isUpdated, setIsUpdated] = useState({ value: null, width: 1000 });
+  const [disable, setDisable] = useState([]);
   const data = useSelector((state) => state.event.event);
   const dispatch = useDispatch();
   if(data !== null && !isUpdated.value){
@@ -90,6 +91,18 @@ export default function EventsList(props){
   }
   useEffect(() => {
     window.scrollTo(0,0);
+    const tokenAuth = localStorage.getItem('leAuthorisationToken');
+    if(tokenAuth){
+      axios.get("https://backend-events.herokuapp.com/users", {
+        headers: {
+          "auth-token": tokenAuth
+        }
+      }).then(res => {
+        if(res.status === 200){
+            setDisable(res.data.regEvents);
+        }
+      })
+    }
   }, [])
   if(isUpdated.value){
     if (window.innerWidth > 768) {
@@ -101,18 +114,37 @@ export default function EventsList(props){
           </center>
           <Timeline align="alternate">
             {isUpdated.value.map((t, index) => {
-              return (
-                <Event
-                  id={t._id}
-                  key={t._id}
-                  img={t.posterURL}
-                  width={isUpdated.width}
-                  title={t.name}
-                  date={t.date}
-                  desc={t.info}
-                  index={index}
-                />
-              );
+              if(disable.find(i => i === t._id)){
+                return (
+                  <Event
+                    id={t._id}
+                    key={t._id}
+                    img={t.posterURL}
+                    width={isUpdated.width}
+                    title={t.name}
+                    date={t.date}
+                    desc={t.info}
+                    index={index}
+                    disable={true}
+                    handler={setDisable}
+                  />
+                );
+              } else {
+                return (
+                  <Event
+                    id={t._id}
+                    key={t._id}
+                    img={t.posterURL}
+                    width={isUpdated.width}
+                    title={t.name}
+                    date={t.date}
+                    desc={t.info}
+                    index={index}
+                    disable={false}
+                    handler={setDisable}
+                  />
+                );
+              }
             })}
           </Timeline>
         </div>
@@ -126,18 +158,38 @@ export default function EventsList(props){
           </center>
           <Timeline>
             {isUpdated.value.map((t, index) => {
-              return (
-                <EventPhone
-                  id={t._id}
-                  key={t._id}
-                  img={t.posterURL}
-                  width={isUpdated.width}
-                  title={t.name}
-                  date={t.date}
-                  desc={t.info}
-                  index={index}
-                />
-              );
+              if(disable.find(i => i === t._id)){
+                return (
+                  <EventPhone
+                    id={t._id}
+                    key={t._id}
+                    img={t.posterURL}
+                    width={isUpdated.width}
+                    title={t.name}
+                    date={t.date}
+                    desc={t.info}
+                    index={index}
+                    disable={true}
+                    handler={setDisable}
+                  />
+                );
+              } else {
+                return (
+                  <EventPhone
+                    id={t._id}
+                    key={t._id}
+                    img={t.posterURL}
+                    width={isUpdated.width}
+                    title={t.name}
+                    date={t.date}
+                    desc={t.info}
+                    index={index}
+                    disable={false}
+                    handler={setDisable}
+                  />
+                );
+              }
+
             })}
           </Timeline>
         </div>

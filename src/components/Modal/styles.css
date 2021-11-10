@@ -4,7 +4,6 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: transparent;
   color: var(--text);
 }
 
@@ -18,7 +17,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(25px);
 }
 
 .container {
@@ -44,6 +43,19 @@
 
 .register-button {
   background-color: #5f2eea;
+  width: 200px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 15px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.register-button-disabled {
+  background-color: #5f2eea55;
   width: 200px;
   font-size: 16px;
   line-height: 24px;
@@ -82,7 +94,6 @@
 }
 
 .modal-wrap {
-  background-color: var(--background);
   padding: 1rem;
   border-radius: 20px;
   position: relative;
@@ -91,7 +102,8 @@
 }
 
 .event-modal-image {
-  width: 50%;
+  width: 30%;
+  padding-right: 4%;
 }
 
 .modal-wrap h1 {

@@ -97,6 +97,7 @@ export const JoinUsButton = styled(LinkRouter)`
   border: none;
   border-radius: 10px;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
 
   :hover {
     color: rgba(255, 255, 255, 1);
