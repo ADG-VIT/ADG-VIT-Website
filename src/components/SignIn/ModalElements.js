@@ -198,7 +198,7 @@ export const Join  = styled.div`
 
 export const Banner1 = styled.div`
     position: absolute;
-    top: 2rem;
+    top: -4rem;
     background-color: var(--blue);
     color: var(--text);
     font-size: 1.2rem;
