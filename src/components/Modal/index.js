@@ -7,7 +7,7 @@ import Banner from "../SignIn/Banner";
 import axios from "axios";
 
 const convertTime = (time) => {
-  var a = new Date(time * 1000);
+  var a = new Date(time);
   var months = [
     "Jan",
     "Feb",

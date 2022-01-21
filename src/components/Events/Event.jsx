@@ -10,7 +10,7 @@ import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
 
 export default function Event({handler, ...props}) {
   const convertTime = (time) => {
-    var a = new Date(time * 1000);
+    var a = new Date(time);
     var months = [
       "Jan",
       "Feb",

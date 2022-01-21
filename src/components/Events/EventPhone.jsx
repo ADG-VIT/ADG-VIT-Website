@@ -9,7 +9,7 @@ import TimelineDot from "@material-ui/lab/TimelineDot";
 
 export default function EventPhone({handler, ...props}) {
   const convertTime = (time) => {
-    var a = new Date(time * 1000);
+    var a = new Date(time);
     var months = [
       "Jan",
       "Feb",

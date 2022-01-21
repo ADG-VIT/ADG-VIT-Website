@@ -35,6 +35,7 @@ export default function Events(props) {
   } else if (!isUpdated.value) {
     Axios.get("https://backend-events.herokuapp.com/events?q=4").then(
       (data) => {
+        console.log(data)
         setIsUpdated({ value: true, data: data.data });
         props.ready();
         dispatch(setEvent({ payload: data.data }));
@@ -42,7 +43,7 @@ export default function Events(props) {
     );
   }
   const convertTime = (time) => {
-    var a = new Date(time * 1000);
+    var a = new Date(time);
     var months = [
       "Jan",
       "Feb",
@@ -73,7 +74,7 @@ export default function Events(props) {
         </Fade>
         {isUpdated.value && (
           <CardsWrap>
-            {isUpdated.data.map((i, ind) => {
+            {isUpdated.data.slice(0,4).map((i, ind) => {
               if (ind === 0) {
                 if (window.outerWidth > 400) {
                   return (

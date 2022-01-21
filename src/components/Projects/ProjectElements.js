@@ -46,6 +46,7 @@ export const CardWrapper = styled.div`
   border-radius: 0.6rem;
   overflow: hidden;
   margin: 0 4rem 2rem;
+  user-select: none;
   @media screen and (max-width: 450px) {
     width: 15rem;
   }
@@ -57,6 +58,7 @@ export const CardImage = styled.img`
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
   height: 20rem;
+  pointer-events: none;
   ${CardWrapper}:hover & {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);

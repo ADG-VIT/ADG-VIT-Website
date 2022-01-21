@@ -27,7 +27,6 @@ const TeamCard = (props) => {
             <FaGithub />
           </Cardlink>
           <Cardlink href={props.linked}>
-            {" "}
             <IoLogoLinkedin />
           </Cardlink>
         </CardSocials>
