@@ -12,7 +12,7 @@ export const CardHandler = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem;
+  padding: 1rem 5rem;
 `;
 
 export const CardWrapper = styled.div`
