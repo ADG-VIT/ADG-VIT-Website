@@ -7,8 +7,32 @@ import {
   HeadingContainer,
   Title,
 } from "./PartnersElements";
-import image from "./assets/image.png";
 import Fade from "react-reveal/Fade";
+
+const partners = [
+  "https://imgur.com/z9GMfWF.png",
+  "https://imgur.com/01pGFig.png",
+  "https://imgur.com/xjbRIAj.png",
+  "https://imgur.com/v2YRSuQ.png",
+  "https://imgur.com/3qnub9u.png",
+  "https://imgur.com/CGSP7pq.png",
+  "https://imgur.com/FRs9XwQ.png",
+  "https://imgur.com/mtEFGib.png",
+  "https://imgur.com/RWd5Yfa.png",
+  "https://imgur.com/67AlaBe.png",
+  "https://imgur.com/DzSHj2n.png",
+  "https://imgur.com/7hxG7xJ.png",
+  "https://imgur.com/ToPUKB9.png",
+  "https://imgur.com/0VArW0S.png",
+  "https://imgur.com/c6J2uIp.png",
+  "https://imgur.com/2GxiYb7.png",
+  "https://imgur.com/ehEwp6G.png",
+  "https://imgur.com/YxKicqL.png",
+  "https://imgur.com/Junw92m.png",
+  "https://imgur.com/OMhLPRb.png",
+  "https://imgur.com/wTfSCjw.png",
+  "https://imgur.com/2SxrAWA.png",
+];
 
 export default function Partners() {
   return (
@@ -19,7 +43,7 @@ export default function Partners() {
           <SeeAll to="/partners/">See All</SeeAll>
         </HeadingContainer>
         <PartnersWrap>
-          {[...Array(20).keys()].map((i, ind) => {
+          {partners.map((i, ind) => {
             return (
               <Fade
                 bottom
@@ -29,7 +53,7 @@ export default function Partners() {
                 fraction={0.1}
               >
                 <Partner>
-                  <img src={image} alt="" />
+                  <img src={i} alt="" />
                 </Partner>
               </Fade>
             );
@@ -48,7 +72,7 @@ export const PartnerFull = () => {
     <React.Fragment>
       <Title>Our Partners</Title>
       <PartnersWrap>
-        {[...Array(20).keys()].map((i, ind) => {
+        {partners.map((i, ind) => {
           return (
             <Fade
               bottom
@@ -58,7 +82,7 @@ export const PartnerFull = () => {
               fraction={0.1}
             >
               <Partner>
-                <img src={image} alt="" />
+                <img src={i} alt="" />
               </Partner>
             </Fade>
           );
