@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.43a927f9.chunk.css",
-    "main.js": "/static/js/main.ca7a6984.chunk.js",
-    "main.js.map": "/static/js/main.ca7a6984.chunk.js.map",
+    "main.css": "/static/css/main.a2c4ca28.chunk.css",
+    "main.js": "/static/js/main.8f5f7569.chunk.js",
+    "main.js.map": "/static/js/main.8f5f7569.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.90d53325.js",
     "runtime-main.js.map": "/static/js/runtime-main.90d53325.js.map",
     "static/css/2.e1b25a95.chunk.css": "/static/css/2.e1b25a95.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.7f502a10.chunk.js.map": "/static/js/2.7f502a10.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.e1b25a95.chunk.css.map": "/static/css/2.e1b25a95.chunk.css.map",
-    "static/css/main.43a927f9.chunk.css.map": "/static/css/main.43a927f9.chunk.css.map",
+    "static/css/main.a2c4ca28.chunk.css.map": "/static/css/main.a2c4ca28.chunk.css.map",
     "static/js/2.7f502a10.chunk.js.LICENSE.txt": "/static/js/2.7f502a10.chunk.js.LICENSE.txt",
     "static/media/AdgLogo.c8d308af.svg": "/static/media/AdgLogo.c8d308af.svg",
     "static/media/Apple Store.0934c841.svg": "/static/media/Apple Store.0934c841.svg",
@@ -26,7 +26,7 @@
     "static/js/runtime-main.90d53325.js",
     "static/css/2.e1b25a95.chunk.css",
     "static/js/2.7f502a10.chunk.js",
-    "static/css/main.43a927f9.chunk.css",
-    "static/js/main.ca7a6984.chunk.js"
+    "static/css/main.a2c4ca28.chunk.css",
+    "static/js/main.8f5f7569.chunk.js"
   ]
 }
