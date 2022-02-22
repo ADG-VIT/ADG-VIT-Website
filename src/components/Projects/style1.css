@@ -1,149 +1,149 @@
 .Modal {
-  position: absolute;
-  top: 80px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: transparent;
-  color: var(--text);
+	position: absolute;
+	top: 80px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: transparent;
+	color: var(--text);
 }
 
 .ReactModal__Body--open {
-  overflow-y: hidden;
+	overflow-y: hidden;
 }
 
 .Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(10px);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	backdrop-filter: blur(10px);
 }
 
 .container {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .col-lg-6 {
-  color: white;
-  text-align: center;
+	color: white;
+	text-align: center;
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-top: -6vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin-top: -6vh;
 }
 
 .content-part {
-  text-align: left;
+	text-align: left;
 }
 
 .register-button {
-  background-color: #5f2eea;
-  width: 200px;
-  font-size: 16px;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  margin: 15px 0;
-  border-radius: 15px;
-  border-style: none;
-  cursor: pointer;
+	background-color: #5f2eea;
+	width: 200px;
+	font-size: 16px;
+	line-height: 24px;
+	color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	margin: 15px 0;
+	border-radius: 15px;
+	border-style: none;
+	cursor: pointer;
 }
 
 .register-button:hover {
-  color: white;
+	color: white;
 }
 
 @media (max-width: 1000px) {
-  .content-part {
-    text-align: center;
-  }
+	.content-part {
+		text-align: center;
+	}
 }
 
 .event-modal-container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
 }
 
 .event-modal-container .modal-wrap1 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
 }
 
 .modal-wrap1 {
-  background-color: var(--background);
-  padding: 1rem 10rem;
-  border-radius: 20px;
-  position: relative;
+	background-color: var(--background);
+	padding: 1rem 10rem;
+	border-radius: 20px;
+	position: relative;
 }
 
 .event-modal-image1 {
-  width: 30%;
-  height: 90vh;
+	width: 30%;
+	height: 90vh;
 }
 
 .modal-wrap1 h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
 }
 
 .modal-wrap1 h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
 }
 
 .modal-wrap1 p {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 768px) {
-  .register-button {
-    width: 250px;
-    padding: 10px;
-    margin: 15px 0;
-  }
+	.register-button {
+		width: 250px;
+		padding: 10px;
+		margin: 15px 0;
+	}
 
-  .event-modal-container .modal-wrap1 {
-    flex-direction: column;
-    text-align: center;
-  }
+	.event-modal-container .modal-wrap1 {
+		flex-direction: column;
+		text-align: center;
+	}
 
-  .event-modal-image1 {
-    width: 80%;
-  }
+	.event-modal-image1 {
+		width: 80%;
+	}
 }
 
 @media screen and (max-width: 450px) {
-  .modal-wrap1 h1 {
-    font-size: 1.5rem;
-  }
+	.modal-wrap1 h1 {
+		font-size: 1.5rem;
+	}
 
-  .modal-wrap1 h2 {
-    font-size: 1.1rem;
-  }
+	.modal-wrap1 h2 {
+		font-size: 1.1rem;
+	}
 
-  .modal-wrap1 p {
-    font-size: 0.8rem;
-  }
+	.modal-wrap1 p {
+		font-size: 0.8rem;
+	}
 }
 
 @media screen and (max-width: 350px) {
-  .register-button {
-    width: 100%;
-  }
+	.register-button {
+		width: 100%;
+	}
 }
