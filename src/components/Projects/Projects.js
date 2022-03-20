@@ -41,7 +41,7 @@ export default function Projects(props) {
 	if (data !== null && !isUpdated.value) {
 		setIsUpdated({ value: true, data: data });
 	} else if (!isUpdated.value) {
-		Axios.get("https://backend-events.herokuapp.com/projects?q=0").then(
+		Axios.get("https://backend-events.herokuapp.com/projects?q=0?home=true").then(
 			(value) => {
 				handleUpdate(value);
 				dispatch(setProject({ payload: value.data }));
