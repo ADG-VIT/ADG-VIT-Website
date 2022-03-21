@@ -6,17 +6,21 @@ import { Box, Card, Heading, Para } from "./DomainElements";
 // import { MdDesignServices } from "react-icons/md";
 
 const DomainCard = (props) => {
-	return (
-		<Card>
-			<Box>
-				<img src={props.icon} alt={props.name + " icon"} />
-			</Box>
-			<Heading>{props.name}</Heading>
-			<Para>
-				<p>{props.info}</p>
-			</Para>
-		</Card>
-	);
+  return (
+    <Card>
+      <Box>
+        <img
+          style={{ height: "70px" }}
+          src={props.icon}
+          alt={props.name + " icon"}
+        />
+      </Box>
+      <Heading>{props.name}</Heading>
+      <Para>
+        <p>{props.info}</p>
+      </Para>
+    </Card>
+  );
 };
 
 export default DomainCard;
