@@ -41,15 +41,15 @@ export default function Projects(props) {
 	if (data !== null && !isUpdated.value) {
 		setIsUpdated({ value: true, data: data });
 	} else if (!isUpdated.value) {
-		Axios.get("https://backend-events.herokuapp.com/projects?q=0?home=true").then(
+		Axios.get("https://backend-events.herokuapp.com/projects?q=0&home=true").then(
 			(value) => {
 				handleUpdate(value);
-				dispatch(setProject({ payload: value.data }));
+				dispatch(setProject({ payload: value.data.data }));
 			}
 		);
 	}
 	const handleUpdate = (value) => {
-		setIsUpdated({ value: true, data: value.data });
+		setIsUpdated({ value: true, data: value.data.data });
 	};
 	return (
 		<React.Fragment>
@@ -63,7 +63,7 @@ export default function Projects(props) {
 						return (
 							<Card
 								key={ind}
-								imageSrc={i.thumbnail}
+								imageSrc={i.mockup}
 								title={i.title}
 								about={i.shortDescription}
 							/>
