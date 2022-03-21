@@ -117,6 +117,13 @@ const Domain = () => {
 export default Domain;
 
 const DomainLanding = () => {
+  const [domains, setDomains] = React.useState([]);
+
+  React.useEffect(() => {
+    axios.get("https://backend-events.herokuapp.com/domain").then((res) => {
+      setDomains(res.data);
+    });
+  }, []);
   return (
     <React.Fragment>
       <HeadingContainer>
@@ -124,7 +131,21 @@ const DomainLanding = () => {
         <Link to="/domains/">See All</Link>
       </HeadingContainer>
       <CardHolder>
-        <Fade bottom distance="25%" duration={500} delay={0}>
+      {domains.map((domain, index) => {
+          if(index < 4){
+            return (
+              <Fade bottom distance="25%" duration={500} delay={index*100}>
+                <DomainCard
+                  key={index}
+                  name={domain.name}
+                  info={domain.description}
+                  icon={domain.logo}
+                />
+              </Fade>
+            );
+          }
+        })}
+        {/* <Fade bottom distance="25%" duration={500} delay={0}>
           <DomainCard
             key={0}
             name="iOS Domain"
@@ -195,7 +216,7 @@ const DomainLanding = () => {
             info="An opportunity to integrate the power of ideas with the power of images."
             icon="web"
           />
-        </Fade>
+        </Fade> */}
       </CardHolder>
     </React.Fragment>
   );
