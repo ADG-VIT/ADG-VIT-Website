@@ -27,7 +27,7 @@ const Domain = () => {
       <CardHolder>
         {domains.map((domain, index) => {
           return (
-            <Fade bottom distance="25%" duration={500} delay={index*100}>
+            <Fade bottom distance="25%" duration={500} delay={index * 100}>
               <DomainCard
                 key={index}
                 name={domain.name}
@@ -131,10 +131,10 @@ const DomainLanding = () => {
         <Link to="/domains/">See All</Link>
       </HeadingContainer>
       <CardHolder>
-      {domains.map((domain, index) => {
-          if(index < 4){
+        {domains.map((domain, index) => {
+          if (index < 6) {
             return (
-              <Fade bottom distance="25%" duration={500} delay={index*100}>
+              <Fade bottom distance="25%" duration={500} delay={index * 100}>
                 <DomainCard
                   key={index}
                   name={domain.name}
