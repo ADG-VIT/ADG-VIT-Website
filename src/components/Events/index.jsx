@@ -142,6 +142,7 @@ export default function EventsList(){
                     index={index}
                     disable={false}
                     handler={setDisable}
+                    regOver={Date.now() > t.date ? true : false}
                   />
                 );
               }
@@ -186,6 +187,7 @@ export default function EventsList(){
                     index={index}
                     disable={false}
                     handler={setDisable}
+                    regOver={Date.now() > t.date ? true : false}
                   />
                 );
               }

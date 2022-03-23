@@ -73,7 +73,7 @@ export default function Event({handler, ...props}) {
               <span>{convertTime(props.date)}</span> <br />
             </div>
             <div className="event-desc">{props.desc}</div>
-            <Modal id={props.id} disable={props.disable} handler={handler}></Modal>
+            <Modal id={props.id} disable={props.disable} handler={handler} regOver={props.regOver}></Modal>
           </div>
         </TimelineContent>
       </TimelineItem>
@@ -121,7 +121,7 @@ export default function Event({handler, ...props}) {
               <span>{convertTime(props.date)}</span> <br />
             </div>
             <div className="event-desc">{props.desc}</div>
-            <Modal id={props.id} disable={props.disable} handler={handler}></Modal>
+            <Modal id={props.id} disable={props.disable} handler={handler} regOver={props.regOver}></Modal>
           </div>
         </TimelineContent>
       </TimelineItem>

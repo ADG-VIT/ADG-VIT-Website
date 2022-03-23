@@ -33,12 +33,6 @@ const Modal = ({ handler, ...props }) => {
 	const [banner, setBanner] = React.useState({ value: false, data: "" });
 	const events = useSelector((state) => state.event.event);
 	var token = useSelector((state) => state.counter.leAuthorisationToken);
-	const [regOver, setRegOver] = useState(false);
-	useEffect(() => {
-		if(Date.now() > data.events.date){
-			setRegOver(true);
-		}
-	}, [])
 	const handleOpenModal = () => {
 		setData((prev) => {
 			return {
@@ -173,9 +167,10 @@ const Modal = ({ handler, ...props }) => {
 										Registered
 									</button>
 								) : (
-									regOver ? (<button
+									props.regOver ? (<button
 										className="register-button"
 										onClick={handleRegister}
+										disabled
 									>
 										Closed
 									</button>) : (

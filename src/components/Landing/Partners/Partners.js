@@ -25,7 +25,6 @@ const partners = [
   "https://imgur.com/ToPUKB9.png",
   "https://imgur.com/0VArW0S.png",
   "https://imgur.com/c6J2uIp.png",
-  "https://imgur.com/2GxiYb7.png",
   "https://imgur.com/ehEwp6G.png",
   "https://imgur.com/YxKicqL.png",
   "https://imgur.com/Junw92m.png",
