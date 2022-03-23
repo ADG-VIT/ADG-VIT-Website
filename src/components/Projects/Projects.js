@@ -4,8 +4,6 @@ import Card from "./Card";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setProject } from "../../store/Project";
 
 const responsive = {
 	superLargeDesktop: {
@@ -35,19 +33,14 @@ export default function Projects(props) {
 		value: false,
 		data: {},
 	});
-	const data = useSelector((state) => state.project.project);
-	const dispatch = useDispatch();
 
-	if (data !== null && !isUpdated.value) {
-		setIsUpdated({ value: true, data: data });
-	} else if (!isUpdated.value) {
+	React.useEffect(() => {
 		Axios.get("https://backend-events.herokuapp.com/projects?q=0&home=true").then(
 			(value) => {
 				handleUpdate(value);
-				dispatch(setProject({ payload: value.data.data }));
 			}
 		);
-	}
+	}, [])
 	const handleUpdate = (value) => {
 		setIsUpdated({ value: true, data: value.data.data });
 	};
