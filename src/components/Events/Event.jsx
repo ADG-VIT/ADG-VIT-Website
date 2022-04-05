@@ -34,7 +34,9 @@ export default function Event({handler, ...props}) {
     return (
       <TimelineItem>
         <TimelineOppositeContent>
-          <img src={props.img} alt={props.title} className="event-image"></img>
+          <div className="divImgEvent">
+              <img src={props.img} alt={props.title} className="event-image"></img>
+          </div>
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector
@@ -82,7 +84,10 @@ export default function Event({handler, ...props}) {
     return (
       <TimelineItem>
         <TimelineOppositeContent>
-          <img src={props.img} alt={props.title} className="event-image"></img>
+          <div className="divImgEvent">
+            
+            <img src={props.img} alt={props.title} className="event-image"></img>
+          </div>
         </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineConnector
