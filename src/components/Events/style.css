@@ -45,6 +45,11 @@
 	outline: none;
 }
 
+.divImgEvent {
+	height: 500px;
+	/* width: 100px; */
+}
+
 .event-title {
 	font-size: 1.7rem;
 	font-weight: 600;

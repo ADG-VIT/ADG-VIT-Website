@@ -8,9 +8,9 @@ import { HashRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 ReactDOM.render(
 	<Provider store={store}>
-		<HashRouter>
+		{/* <HashRouter> */}
 			<App />
-		</HashRouter>
+		{/* </HashRouter> */}
 	</Provider>,
 	document.getElementById("root")
 );
